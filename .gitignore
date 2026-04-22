@@ -11,6 +11,7 @@ Thumbs.db
 .codex/
 .factory/
 .vercel/
+.vercel
 
 # Logs and runtime state
 *.log
@@ -25,3 +26,8 @@ node_modules/
 .venv/
 venv/
 __pycache__/
+
+# Secrets and environment files (never commit real values)
+.env
+.env.*
+!.env.example

@@ -28,6 +28,7 @@ from .memory import (
     revise_memory,
     save_runtime_state,
 )
+from .providers import build_system_prompt, load_provider
 from .models import SceneGeometry, SceneModel, SceneTransition
 from .render import AnsiDiffRenderer, CellGrid
 
@@ -504,6 +505,8 @@ class DreamerApp:
         else:
             self._append_log("shell", "Transmission held in session. No durable mark yet.")
 
+        self._invoke_companion_reply(message)
+
     def _append_log(self, speaker: str, text: str) -> None:
         self.state["transmissionLog"].append({"speaker": speaker, "text": text})
         self.state["transmissionLog"] = self.state["transmissionLog"][-18:]
@@ -515,6 +518,48 @@ class DreamerApp:
 
     def _queue_resurface_event(self) -> None:
         self._queue_event("memory-resurfacing", "distortion.relic-phase", 0.6)
+
+    def _invoke_companion_reply(self, user_message: str) -> None:
+        provider = getattr(self, "_provider_cache", "unset")
+        if provider == "unset":
+            provider = load_provider()
+            self._provider_cache = provider
+        if provider is None:
+            return
+
+        history: list[dict[str, str]] = []
+        for entry in self.state["transmissionLog"][-10:]:
+            role = {"you": "user", "companion": "assistant"}.get(entry["speaker"])
+            if role:
+                history.append({"role": role, "content": entry["text"]})
+
+        recent_memories = [memory["summary"] for memory in self.state["durableMemories"][-4:]]
+        visible_artifacts = [artifact["title"] for artifact in self._visible_artifacts()[-4:]]
+        system_prompt = build_system_prompt(
+            profile_name=self.assets.profile["displayName"],
+            archetype=self.assets.profile["archetype"],
+            mode=self.state["modeId"],
+            tier=self.tier,
+            recent_memories=recent_memories,
+            visible_artifacts=visible_artifacts,
+        )
+
+        reply = provider.generate(
+            system_prompt=system_prompt,
+            user_text=user_message,
+            history=history,
+        )
+        if reply is None:
+            return
+
+        for chunk in _split_for_log(reply.text):
+            self._append_log("companion", chunk)
+        append_session_event(
+            self.root,
+            "mind",
+            "companion.reply",
+            {"provider": provider.id, "model": reply.model, "finish": reply.finish_reason},
+        )
 
     def _prune_events(self, now: float) -> None:
         self.transient_events = [event for event in self.transient_events if event.expires_at > now]
@@ -1572,6 +1617,7 @@ def speaker_prefix(speaker: str) -> str:
         "you": "you>",
         "shell": "shell>",
         "memory": "memory>",
+        "companion": "aster>",
     }.get(speaker, f"{speaker}>")
 
 
@@ -1580,7 +1626,28 @@ def speaker_style(speaker: str) -> str:
         "you": "ui_bright",
         "shell": "signal",
         "memory": "symbolic",
+        "companion": "ui_bright",
     }.get(speaker, "ui_muted")
+
+
+def _split_for_log(text: str, limit: int = 220) -> list[str]:
+    cleaned = " ".join(text.strip().split())
+    if not cleaned:
+        return []
+    if len(cleaned) <= limit:
+        return [cleaned]
+    chunks: list[str] = []
+    remaining = cleaned
+    while remaining:
+        if len(remaining) <= limit:
+            chunks.append(remaining)
+            break
+        cut = remaining.rfind(" ", 0, limit)
+        if cut == -1:
+            cut = limit
+        chunks.append(remaining[:cut].rstrip())
+        remaining = remaining[cut:].lstrip()
+    return chunks
 
 
 def summarize(text: str, limit: int) -> str:

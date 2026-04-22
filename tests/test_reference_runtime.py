@@ -10,6 +10,7 @@ from pathlib import Path
 
 from dreamer2_ref.app import DreamerApp
 from dreamer2_ref.commands import parse_shell_input
+from dreamer2_ref.providers import ProviderReply
 from dreamer2_ref.web import PreviewService
 
 
@@ -200,6 +201,33 @@ class ReferenceRuntimeTests(unittest.TestCase):
         ]
         self.assertTrue(orbit_artifacts)
         self.assertEqual(orbit_artifacts[-1]["title"], "Dream Shard")
+
+    def test_send_with_stub_provider_appends_companion_reply(self) -> None:
+        class StubProvider:
+            id = "provider.stub"
+
+            def __init__(self) -> None:
+                self.calls: list[dict[str, object]] = []
+
+            def generate(self, *, system_prompt, user_text, history):
+                self.calls.append({"system": system_prompt, "user": user_text, "history": list(history)})
+                return ProviderReply(text="A quiet reply from the stub.", model="stub-1", finish_reason="stop")
+
+        app = DreamerApp(self.root, no_color=True)
+        app._provider_cache = StubProvider()
+        app._execute_command("send Hello, companion.")
+
+        log_tail = [entry for entry in app.state["transmissionLog"] if entry["speaker"] == "companion"]
+        self.assertTrue(log_tail)
+        self.assertEqual(log_tail[-1]["text"], "A quiet reply from the stub.")
+
+    def test_send_without_provider_does_not_append_companion_reply(self) -> None:
+        app = DreamerApp(self.root, no_color=True)
+        app._provider_cache = None
+        app._execute_command("send Hello, companion.")
+
+        companion_lines = [entry for entry in app.state["transmissionLog"] if entry["speaker"] == "companion"]
+        self.assertFalse(companion_lines)
 
     def test_forget_memory_releases_visual_marks(self) -> None:
         app = DreamerApp(self.root, no_color=True)
