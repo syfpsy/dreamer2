@@ -1,0 +1,67 @@
+{
+  "id": "pack.style.motifs.core",
+  "version": "0.1.0",
+  "class": "motif-pack",
+  "motifs": [
+    {
+      "id": "motif.segmented-ring",
+      "version": "0.1.0",
+      "class": "motif",
+      "label": "Segmented Ring",
+      "silhouetteRule": "broken circular ring composed of short structural arcs and soft-signal gaps",
+      "compatibleMaterials": ["material.shrine-plating", "material.cable-veined-stone"],
+      "compatibleGlyphFamilies": ["structural", "soft-signal"],
+      "rotationPolicy": "any",
+      "mirrorPolicy": "any",
+      "narrativeMeaning": "ceremony, perimeter, calm containment"
+    },
+    {
+      "id": "motif.stepped-halo",
+      "version": "0.1.0",
+      "class": "motif",
+      "label": "Stepped Halo",
+      "silhouetteRule": "stacked nested arcs with widening radius, structural with symbolic punctuation",
+      "compatibleMaterials": ["material.shrine-plating"],
+      "compatibleGlyphFamilies": ["structural", "symbolic"],
+      "rotationPolicy": "90-180",
+      "mirrorPolicy": "horizontal",
+      "narrativeMeaning": "reverence, crown, assembled signal"
+    },
+    {
+      "id": "motif.vow-ring",
+      "version": "0.1.0",
+      "class": "motif",
+      "label": "Vow Ring",
+      "silhouetteRule": "small closed ring with a single symbolic punctuation on its crown",
+      "compatibleMaterials": ["material.shrine-plating", "material.cable-veined-stone"],
+      "compatibleGlyphFamilies": ["symbolic", "structural"],
+      "rotationPolicy": "any",
+      "mirrorPolicy": "any",
+      "narrativeMeaning": "a kept promise, a remembered covenant"
+    },
+    {
+      "id": "motif.prayer-bracket",
+      "version": "0.1.0",
+      "class": "motif",
+      "label": "Prayer Bracket",
+      "silhouetteRule": "narrow vertical bracket with two soft-signal ticks on the inner face",
+      "compatibleMaterials": ["material.shrine-plating", "material.cable-veined-stone"],
+      "compatibleGlyphFamilies": ["structural", "soft-signal"],
+      "rotationPolicy": "90",
+      "mirrorPolicy": "horizontal",
+      "narrativeMeaning": "flanking attention, quiet vigilance"
+    },
+    {
+      "id": "motif.seam-stitch",
+      "version": "0.1.0",
+      "class": "motif",
+      "label": "Seam Stitch",
+      "silhouetteRule": "short sequence of alternating structural and decay marks along a line",
+      "compatibleMaterials": ["material.stitched-membrane", "material.shrine-plating"],
+      "compatibleGlyphFamilies": ["structural", "decay"],
+      "rotationPolicy": "any",
+      "mirrorPolicy": "any",
+      "narrativeMeaning": "repair, mended scar, earned recovery"
+    }
+  ]
+}

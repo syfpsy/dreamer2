@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/portrait/companion-dna.schema.json",
+  "title": "Companion DNA",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "class",
+    "label",
+    "lineageId",
+    "seed",
+    "silhouetteIntent",
+    "glyphFamilyBias"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "companion-dna" },
+    "label": { "type": "string" },
+    "lineageId": { "type": "string" },
+    "seed": { "type": ["string", "integer"] },
+    "archetypeBias": {
+      "type": "object",
+      "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+    },
+    "silhouetteIntent": {
+      "type": "string",
+      "enum": ["quiet", "imposing", "fragile", "coiled", "ceremonial", "vigilant"]
+    },
+    "glyphFamilyBias": {
+      "type": "object",
+      "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+    },
+    "motifSet": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "paletteRoles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "materialAffinity": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "preferredCompositionModes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "motionPersonality": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "scarStyle": {
+      "type": "string",
+      "enum": ["stitched", "ember", "dusted", "vow", "sealed", "quiet"]
+    },
+    "evolutionPermissions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "inheritancePolicy": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/world/place-archetype.schema.json",
+  "title": "Place Archetype",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "class",
+    "label",
+    "emotionalPosture",
+    "compatibleLayoutIdioms",
+    "materialFamilies",
+    "motifSet",
+    "glyphFamilyBias",
+    "paletteDoctrineRef",
+    "silenceToDetailRatio"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "place-archetype" },
+    "label": { "type": "string" },
+    "emotionalPosture": { "type": "string" },
+    "compatibleLayoutIdioms": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "materialFamilies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "baseRatio"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "baseRatio": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "motifSet": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "glyphFamilyBias": {
+      "type": "object",
+      "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+    },
+    "paletteDoctrineRef": { "type": "string" },
+    "allowedAmbientFields": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "allowedWeatherSystems": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "allowedScarPackages": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "allowedFocalObjects": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "allowedCompositionModes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "silenceToDetailRatio": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "lightDoctrine": { "type": "string" },
+    "motionBudget": {
+      "type": "object",
+      "additionalProperties": { "type": "number" }
+    },
+    "worldFields": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  }
+}

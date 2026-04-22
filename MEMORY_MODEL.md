@@ -163,6 +163,20 @@ The shell should render continuity, not only report it. Raw storage remains sepa
 - forgetting or revising memory must update downstream symbolic state
 - dream outputs should not create permanent symbols unless confirmed or re-encountered
 
+## Memory Echoes In The World
+
+Memory does not only surface on the companion. Recurring or durable memories can echo in the place itself as environmental motifs, dormant symbols, stitched seams, or a raised `memory_resonance` field value. See `WORLD_GENERATION.md` for the field semantics and `PLACE_GRAMMAR.md` for motif integration.
+
+Echo rules:
+
+- an echo must trace back to a source memory id
+- an echo must never violate the biome's silence ratio or palette doctrine
+- an echo appears as motif bias, field seed, dormant symbol placement, or scar-echo at reduced intensity
+- forgetting or revising the source memory must update or dissolve the echo
+- echoes are inspectable via `inspect scene` and `inspect cell` (future)
+
+A memory-to-world echo mapper runs alongside the existing memory-to-symbol mapper. They are sibling mappers operating on the same promotion output.
+
 ## Export And Portability
 
 Support export at four levels:

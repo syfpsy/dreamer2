@@ -1,0 +1,23 @@
+{
+  "id": "behavior.breath-offset",
+  "version": "0.1.0",
+  "class": "animation-behavior",
+  "label": "Breath Offset",
+  "family": "pulse-breath",
+  "targetKinds": ["companion-slot", "cell"],
+  "inputFields": ["field.sacredness"],
+  "timing": { "cadenceMinMs": 1600, "cadenceMaxMs": 4200 },
+  "glyphFamilies": ["structural", "soft-signal"],
+  "familySubstitutionRules": ["within-family-only", "edge-only"],
+  "motionBudgetCost": "low",
+  "tierVariants": {
+    "pure-text": { "magnitude": 0.2 },
+    "rich-unicode": { "magnitude": 0.4 },
+    "hybrid-graphics": { "magnitude": 0.6 }
+  },
+  "compatibleBiomes": ["*"],
+  "compatibleMaterials": ["*"],
+  "narrativeMeaning": "quiet life, a body remembering to breathe",
+  "fallbackBehaviorId": "behavior.anchor-pulse",
+  "notes": "Sub-pixel-scale silhouette offset, barely perceptible. Stays within family."
+}

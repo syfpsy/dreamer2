@@ -1,0 +1,32 @@
+{
+  "id": "focal.broken-halo-terminal",
+  "version": "0.1.0",
+  "class": "focal-object",
+  "label": "Broken Halo Terminal",
+  "dominantMotif": "motif.stepped-halo",
+  "compatibleBiomes": [
+    "place.signal-chapel",
+    "place.halo-vault",
+    "place.archive-shaft"
+  ],
+  "glyphFamilies": ["structural", "symbolic", "soft-signal"],
+  "materialFamilies": ["material.shrine-plating", "material.cable-veined-stone"],
+  "localBehaviors": [
+    "behavior.core-pulse",
+    "behavior.anchor-pulse",
+    "behavior.relic-phase"
+  ],
+  "compositionModes": [
+    "composition.shrine",
+    "composition.walker",
+    "composition.projection"
+  ],
+  "sceneWriteBack": [
+    { "effect": "raise-field", "fieldId": "field.signal", "delta": 0.6, "falloff": 0.35 },
+    { "effect": "raise-field", "fieldId": "field.sacredness", "delta": 0.5, "falloff": 0.25 },
+    { "effect": "halo-bloom", "fieldId": "field.signal", "delta": 0.15, "falloff": 0.5 }
+  ],
+  "damageLogic": "Scars brighten stitched-seam motifs on the halo stack; silent halo rings remain untouched.",
+  "centerOfMass": "absolute",
+  "notes": "A halo stack split by a faint scar. Composes the center of mass. Never flood the screen; local density only."
+}

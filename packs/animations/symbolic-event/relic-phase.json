@@ -1,0 +1,23 @@
+{
+  "id": "behavior.relic-phase",
+  "version": "0.1.0",
+  "class": "animation-behavior",
+  "label": "Relic Phase",
+  "family": "symbolic-event",
+  "targetKinds": ["cell", "focal", "companion-object"],
+  "inputFields": ["field.sacredness", "field.memory_resonance"],
+  "timing": { "cadenceMinMs": 2400, "cadenceMaxMs": 7200, "burstMs": 1100, "cooldownMs": 6200 },
+  "glyphFamilies": ["symbolic", "structural"],
+  "familySubstitutionRules": ["within-family-only", "transient-only"],
+  "motionBudgetCost": "medium",
+  "tierVariants": {
+    "pure-text": { "magnitude": 0.3, "steps": 1 },
+    "rich-unicode": { "magnitude": 0.6, "steps": 2 },
+    "hybrid-graphics": { "magnitude": 0.8, "steps": 3 }
+  },
+  "compatibleBiomes": ["place.signal-chapel", "place.halo-vault", "place.memory-nursery", "place.archive-shaft"],
+  "compatibleMaterials": ["*"],
+  "narrativeMeaning": "a relic or artifact surfacing for a moment",
+  "fallbackBehaviorId": "behavior.anchor-pulse",
+  "notes": "Rare ceremonial emphasis when an artifact or vow surfaces. Always resolves in a beat."
+}

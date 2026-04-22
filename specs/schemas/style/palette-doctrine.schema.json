@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/style/palette-doctrine.schema.json",
+  "title": "Palette Doctrine",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "class", "label", "roles"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "palette-doctrine" },
+    "label": { "type": "string" },
+    "roles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["structural", "dimSupport", "energyOrEvent", "rareAnomaly"],
+      "properties": {
+        "structural": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["hexPrimary"],
+          "properties": {
+            "hexPrimary": { "type": "string" },
+            "hexAlt": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "ansiFallback": { "type": "string" }
+          }
+        },
+        "dimSupport": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["hexPrimary"],
+          "properties": {
+            "hexPrimary": { "type": "string" },
+            "hexAlt": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "ansiFallback": { "type": "string" }
+          }
+        },
+        "energyOrEvent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["hexPrimary"],
+          "properties": {
+            "hexPrimary": { "type": "string" },
+            "hexAlt": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "ansiFallback": { "type": "string" }
+          }
+        },
+        "rareAnomaly": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["hexPrimary"],
+          "properties": {
+            "hexPrimary": { "type": "string" },
+            "hexAlt": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "ansiFallback": { "type": "string" }
+          }
+        }
+      }
+    },
+    "contrastRules": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  }
+}

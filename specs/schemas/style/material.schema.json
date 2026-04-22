@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/style/material.schema.json",
+  "title": "Material",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "class", "label", "allowedGlyphFamilies"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "material" },
+    "label": { "type": "string" },
+    "allowedGlyphFamilies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["family", "weight"],
+        "properties": {
+          "family": {
+            "type": "string",
+            "enum": ["structural", "soft-signal", "dense-pressure", "decay", "symbolic"]
+          },
+          "weight": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "edgeTreatment": {
+      "type": "string",
+      "enum": ["sharp", "dusted", "cracked", "seam", "smooth", "rippled"]
+    },
+    "preferredDensityCurve": { "type": "string" },
+    "preferredPaletteRoles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "animationCompatibility": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "scarAffinity": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  }
+}

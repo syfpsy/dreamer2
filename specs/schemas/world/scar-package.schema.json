@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/world/scar-package.schema.json",
+  "title": "Scar Package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "class", "label", "kind"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "scar-package" },
+    "label": { "type": "string" },
+    "kind": {
+      "type": "string",
+      "description": "reactor-burst, cleansing-fire, failed-repair, archive-spill, sentinel-nest, ritual-lock, field-inversion, coolant-flood, sabotage-breach, dream-seep, failed-memory-extraction, warden-purge, etc."
+    },
+    "affinityBiomes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "incompatibleBiomes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "topologyEffects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["effect"],
+        "properties": {
+          "effect": { "type": "string" },
+          "intensity": { "type": "number", "minimum": 0, "maximum": 1 },
+          "region": { "type": "string" }
+        }
+      }
+    },
+    "fieldEffects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "delta"],
+        "properties": {
+          "field": { "type": "string" },
+          "delta": { "type": "number" },
+          "falloff": { "type": "number" },
+          "region": { "type": "string" }
+        }
+      }
+    },
+    "materialEffects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["material"],
+        "properties": {
+          "material": { "type": "string" },
+          "addMotifs": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "motifBias": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["motif"],
+        "properties": {
+          "motif": { "type": "string" },
+          "weight": { "type": "number" }
+        }
+      }
+    },
+    "animationBindings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "activationRules": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "conditionalOn": {
+          "type": "string",
+          "description": "Optional runtime condition: memory-state, mode-state, weather, agent-state, external-event"
+        },
+        "requiresMemoryTag": { "type": "string" },
+        "requiresMode": { "type": "string" }
+      }
+    },
+    "narrativeMeaning": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}

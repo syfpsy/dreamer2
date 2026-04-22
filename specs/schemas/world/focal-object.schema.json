@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/world/focal-object.schema.json",
+  "title": "Focal Object",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "class",
+    "label",
+    "dominantMotif",
+    "compatibleBiomes",
+    "glyphFamilies",
+    "compositionModes"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "focal-object" },
+    "label": { "type": "string" },
+    "dominantMotif": { "type": "string" },
+    "compatibleBiomes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "glyphFamilies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "materialFamilies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "localBehaviors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "animation behavior module ids that may bind to cells of this focal."
+    },
+    "compositionModes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Allowed companion composition modes when this focal is present."
+    },
+    "sceneWriteBack": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["effect"],
+        "properties": {
+          "effect": { "type": "string" },
+          "fieldId": { "type": "string" },
+          "delta": { "type": "number" },
+          "falloff": { "type": "number" }
+        }
+      }
+    },
+    "damageLogic": {
+      "type": "string",
+      "description": "How damage/scars visibly shape this focal when present."
+    },
+    "centerOfMass": {
+      "type": "string",
+      "enum": ["absolute", "relative", "balanced"]
+    },
+    "notes": { "type": "string" }
+  }
+}

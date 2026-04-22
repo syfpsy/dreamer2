@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/portrait/lineage.schema.json",
+  "title": "Lineage",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "class", "label"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "lineage" },
+    "label": { "type": "string" },
+    "extends": { "type": "string" },
+    "motifSet": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "silhouetteIntent": {
+      "type": "string",
+      "enum": ["quiet", "imposing", "fragile", "coiled", "ceremonial", "vigilant"]
+    },
+    "paletteRoles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evolutionPermissions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "compatibleBiomes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "material.stitched-membrane",
+  "version": "0.1.0",
+  "class": "material",
+  "label": "Stitched Membrane",
+  "allowedGlyphFamilies": [
+    { "family": "structural", "weight": 0.40 },
+    { "family": "decay", "weight": 0.35 },
+    { "family": "soft-signal", "weight": 0.15 },
+    { "family": "symbolic", "weight": 0.10 }
+  ],
+  "edgeTreatment": "cracked",
+  "preferredDensityCurve": "clustered-low",
+  "preferredPaletteRoles": ["dim_support", "energy_or_event"],
+  "animationCompatibility": [
+    "behavior.ghost-trail",
+    "behavior.corrosion-creep",
+    "behavior.stitched-return"
+  ],
+  "scarAffinity": ["scar.failed-memory-extraction"],
+  "notes": "Seams and mended lines. Active during recovering states."
+}

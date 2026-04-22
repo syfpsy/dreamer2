@@ -1,0 +1,36 @@
+{
+  "id": "composition.shrine",
+  "version": "0.1.0",
+  "class": "composition-mode",
+  "label": "Shrine",
+  "mode": "shrine",
+  "slotVisibility": ["head", "eyes", "jaw", "shoulders", "core", "halo", "relic", "scar", "companion"],
+  "motionMultipliers": {
+    "center": 0.6,
+    "edge": 0.8,
+    "ambient": 1.0,
+    "weather": 1.0,
+    "focal": 1.2
+  },
+  "paletteBias": ["structural", "energy_or_event", "rare_anomaly"],
+  "glyphFamilyBias": {
+    "structural": 0.5,
+    "soft-signal": 0.22,
+    "dense-pressure": 0.08,
+    "decay": 0.08,
+    "symbolic": 0.12
+  },
+  "sceneWriteBackRules": [
+    { "effect": "raise-field", "fieldId": "field.sacredness", "delta": 0.2 },
+    { "effect": "raise-field", "fieldId": "field.signal", "delta": 0.1 },
+    { "effect": "align-weather-toward-focal" }
+  ],
+  "compatibleBiomes": [
+    "place.signal-chapel",
+    "place.halo-vault",
+    "place.memory-nursery",
+    "place.choir-engine"
+  ],
+  "fallbackModeId": "composition.walker",
+  "notes": "The companion sits centered as focal altar. Scene orients around it. Motion ceremonial."
+}

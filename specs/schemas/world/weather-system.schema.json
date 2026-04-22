@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/world/weather-system.schema.json",
+  "title": "Weather System",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "class",
+    "label",
+    "dominantAxis",
+    "glyphFamilies",
+    "densityBudget"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "weather-system" },
+    "label": { "type": "string" },
+    "dominantAxis": {
+      "type": "string",
+      "enum": ["vertical", "horizontal", "radial", "none"]
+    },
+    "glyphFamilies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "paletteRoles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "densityBudget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["absoluteCap"],
+      "properties": {
+        "absoluteCap": { "type": "number", "minimum": 0, "maximum": 1 },
+        "perRegionCap": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "cadenceWindowMs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min": { "type": "integer", "minimum": 16 },
+        "max": { "type": "integer", "minimum": 16 }
+      }
+    },
+    "interactionWithAgent": {
+      "type": "string",
+      "enum": ["attract", "repel", "ignore", "align"]
+    },
+    "interactionWithFocal": {
+      "type": "string",
+      "enum": ["amplify", "dampen", "halo", "stitch", "none"]
+    },
+    "compatibleBiomes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "animationBinding": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}

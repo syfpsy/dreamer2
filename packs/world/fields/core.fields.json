@@ -1,0 +1,47 @@
+{
+  "id": "pack.world.fields.core",
+  "version": "0.1.0",
+  "class": "field-pack",
+  "fields": [
+    {
+      "id": "field.signal",
+      "label": "Signal",
+      "kind": "scalar",
+      "range": { "min": 0, "max": 1 },
+      "sourceRules": ["biome-base", "focal-object", "weather"],
+      "propagationRules": ["diffuse-radial", "falloff-linear"],
+      "decayRules": ["stable"],
+      "consumers": ["ambient.signal-drift", "weather.slow-signal-dust", "synthesis.glyph-density"]
+    },
+    {
+      "id": "field.memory_resonance",
+      "label": "Memory Resonance",
+      "kind": "scalar",
+      "range": { "min": 0, "max": 1 },
+      "sourceRules": ["memory-echo", "scar-package", "focal-object"],
+      "propagationRules": ["cluster-near-source", "falloff-linear"],
+      "decayRules": ["event-decay-on-forget"],
+      "consumers": ["ambient.memory-dust", "scar.failed-memory-extraction", "synthesis.motif-bias"]
+    },
+    {
+      "id": "field.damage",
+      "label": "Damage",
+      "kind": "scalar",
+      "range": { "min": 0, "max": 1 },
+      "sourceRules": ["scar-package"],
+      "propagationRules": ["diffuse-local", "falloff-linear"],
+      "decayRules": ["event-decay-on-recovery"],
+      "consumers": ["synthesis.glyph-family", "behavior.ghost-trail", "behavior.corrosion-creep"]
+    },
+    {
+      "id": "field.sacredness",
+      "label": "Sacredness",
+      "kind": "scalar",
+      "range": { "min": 0, "max": 1 },
+      "sourceRules": ["biome-base", "focal-object", "companion-state"],
+      "propagationRules": ["diffuse-radial", "falloff-gentle"],
+      "decayRules": ["stable"],
+      "consumers": ["ambient.sacred-halo-bloom", "synthesis.palette-role", "distortion.relic-phase"]
+    }
+  ]
+}

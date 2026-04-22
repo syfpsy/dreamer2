@@ -1,0 +1,21 @@
+{
+  "id": "layout.ring-sanctum",
+  "version": "0.1.0",
+  "class": "layout-idiom",
+  "label": "Ring Sanctum",
+  "topology": {
+    "shape": "ring",
+    "dominantAxis": "radial",
+    "minDimensions": { "cols": 48, "rows": 18 },
+    "focalZone": "center",
+    "silenceZones": ["far-edge"],
+    "trafficLanes": ["entry-ring"]
+  },
+  "compatibleBiomes": [
+    "place.signal-chapel",
+    "place.halo-vault",
+    "place.choir-engine",
+    "place.memory-nursery"
+  ],
+  "notes": "Circular chamber around a focal object. Center carries the focal; edges remain quiet."
+}

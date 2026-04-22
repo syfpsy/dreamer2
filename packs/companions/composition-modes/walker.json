@@ -1,0 +1,38 @@
+{
+  "id": "composition.walker",
+  "version": "0.1.0",
+  "class": "composition-mode",
+  "label": "Walker",
+  "mode": "walker",
+  "slotVisibility": ["head", "eyes", "jaw", "shoulders", "core", "scar", "companion"],
+  "motionMultipliers": {
+    "center": 0.8,
+    "edge": 1.0,
+    "ambient": 1.0,
+    "weather": 1.0,
+    "focal": 0.8
+  },
+  "paletteBias": ["structural", "energy_or_event"],
+  "glyphFamilyBias": {
+    "structural": 0.48,
+    "soft-signal": 0.24,
+    "dense-pressure": 0.10,
+    "decay": 0.08,
+    "symbolic": 0.10
+  },
+  "sceneWriteBackRules": [
+    { "effect": "align-weather-toward-agent" },
+    { "effect": "nearby-cells-brighten-on-proximity" }
+  ],
+  "compatibleBiomes": [
+    "place.signal-chapel",
+    "place.archive-shaft",
+    "place.scar-garden",
+    "place.reactor-crypt",
+    "place.stitched-cavern",
+    "place.hollow-junction",
+    "place.lantern-trench"
+  ],
+  "fallbackModeId": "composition.remote-presence",
+  "notes": "Companion placed inside topology. Scene surrounds the agent. Motion body-scale."
+}

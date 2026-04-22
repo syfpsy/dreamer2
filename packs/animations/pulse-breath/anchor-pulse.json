@@ -1,0 +1,22 @@
+{
+  "id": "behavior.anchor-pulse",
+  "version": "0.1.0",
+  "class": "animation-behavior",
+  "label": "Anchor Pulse",
+  "family": "pulse-breath",
+  "targetKinds": ["cell", "field"],
+  "inputFields": ["field.signal", "field.sacredness"],
+  "timing": { "cadenceMinMs": 1200, "cadenceMaxMs": 2600 },
+  "glyphFamilies": ["soft-signal", "symbolic"],
+  "familySubstitutionRules": ["within-family-only"],
+  "motionBudgetCost": "low",
+  "tierVariants": {
+    "pure-text": { "magnitude": 0.2 },
+    "rich-unicode": { "magnitude": 0.35 }
+  },
+  "compatibleBiomes": ["*"],
+  "compatibleMaterials": ["*"],
+  "narrativeMeaning": "quiet relay point",
+  "fallbackBehaviorId": null,
+  "notes": "Small anchored pulse at relay points. Safe universal fallback."
+}

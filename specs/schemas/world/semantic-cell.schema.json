@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/world/semantic-cell.schema.json",
+  "title": "Semantic Cell",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "material",
+    "fields",
+    "openness"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Semantic class: floor, wall, void, arch, seam, niche, altar, shaft, vent, pool, cable-run, etc."
+    },
+    "material": {
+      "type": "string",
+      "description": "Material family id from the material registry."
+    },
+    "elevation": {
+      "type": "number"
+    },
+    "openness": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "lightExposure": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "fields": {
+      "type": "object",
+      "description": "Map of world field id to scalar or categorical value.",
+      "additionalProperties": true
+    },
+    "propOccupancy": {
+      "type": ["string", "null"]
+    },
+    "activeState": {
+      "type": "string",
+      "enum": ["inert", "humming", "pulsing", "ignited", "sealed", "ritual-active", "corrupted", "mourning", "scarred", "dormant"]
+    },
+    "motionTag": {
+      "type": ["string", "null"],
+      "description": "Animation behavior module id bound to this cell."
+    },
+    "dominantInfluences": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "glyphFamily": {
+      "type": "string",
+      "enum": ["structural", "soft-signal", "dense-pressure", "decay", "symbolic"]
+    },
+    "paletteRole": {
+      "type": "string",
+      "enum": ["structural", "dim_support", "energy_or_event", "rare_anomaly"]
+    },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "behavior.ghost-trail",
+  "version": "0.1.0",
+  "class": "animation-behavior",
+  "label": "Ghost Trail",
+  "family": "decay-residue",
+  "targetKinds": ["cell", "scar", "companion-object"],
+  "inputFields": ["field.damage", "field.memory_resonance"],
+  "timing": { "cadenceMinMs": 1800, "cadenceMaxMs": 4800, "burstMs": 900, "cooldownMs": 4200 },
+  "glyphFamilies": ["decay", "soft-signal"],
+  "familySubstitutionRules": ["within-family-only", "transient-only"],
+  "motionBudgetCost": "medium",
+  "tierVariants": {
+    "pure-text": { "magnitude": 0.25, "steps": 2 },
+    "rich-unicode": { "magnitude": 0.45, "steps": 3 }
+  },
+  "compatibleBiomes": ["*"],
+  "compatibleMaterials": ["material.stitched-membrane", "material.cable-veined-stone"],
+  "narrativeMeaning": "an echo of something that moved or almost was",
+  "fallbackBehaviorId": "behavior.anchor-pulse",
+  "notes": "Readable echo behind a moved or resurfacing element. Rare and short."
+}

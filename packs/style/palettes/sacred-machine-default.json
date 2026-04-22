@@ -1,0 +1,35 @@
+{
+  "id": "palette.sacred-machine-default",
+  "version": "0.1.0",
+  "class": "palette-doctrine",
+  "label": "Sacred Machine Default",
+  "roles": {
+    "structural": {
+      "hexPrimary": "#8a94a0",
+      "hexAlt": ["#7c8693", "#6f7885"],
+      "ansiFallback": "bright-black"
+    },
+    "dimSupport": {
+      "hexPrimary": "#3a4048",
+      "hexAlt": ["#2f343b"],
+      "ansiFallback": "black"
+    },
+    "energyOrEvent": {
+      "hexPrimary": "#9fd8d0",
+      "hexAlt": ["#8ec8c0", "#b0e3db"],
+      "ansiFallback": "cyan"
+    },
+    "rareAnomaly": {
+      "hexPrimary": "#d2b183",
+      "hexAlt": ["#c59a66"],
+      "ansiFallback": "yellow"
+    }
+  },
+  "contrastRules": [
+    "structural-on-dimSupport: high",
+    "energyOrEvent-on-dimSupport: medium",
+    "rareAnomaly-on-structural: high",
+    "rareAnomaly-density: sparse"
+  ],
+  "notes": "Calm pale cyan for signal, iron gray for structure, smoked bone for negative space, muted ember for rare events."
+}

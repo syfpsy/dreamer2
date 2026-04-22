@@ -241,7 +241,7 @@ class ReferenceRuntimeTests(unittest.TestCase):
         self.assertNotIn("entity.lantern-mote", app.state["companions"])
 
     def test_scene_dump_has_expected_layer_order(self) -> None:
-        app = DreamerApp(self.root, no_color=True, use_diff=True)
+        app = DreamerApp(self.root, no_color=True, use_diff=True, tier_override="pure-text")
         scene = app.snapshot_scene_model()
 
         self.assertEqual(scene["capabilityTier"], "pure-text")

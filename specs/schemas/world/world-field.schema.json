@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/world/world-field.schema.json",
+  "title": "World Field",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind"],
+  "properties": {
+    "id": { "type": "string" },
+    "label": { "type": "string" },
+    "kind": {
+      "type": "string",
+      "enum": ["scalar", "categorical", "vector", "boolean"]
+    },
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min": { "type": "number" },
+        "max": { "type": "number" }
+      }
+    },
+    "domain": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "sourceRules": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "propagationRules": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "decayRules": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "consumers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  }
+}

@@ -8,6 +8,27 @@ The shell should be treated as a layered simulation on a character grid, not as 
 
 ## Primary Layers
 
+### World
+
+Owns:
+
+- scene equation resolution (see `WORLD_GENERATION.md`)
+- semantic cell grid and invisible world fields
+- biome grammar, place archetype selection, layout idiom instantiation
+- story scar application and focal object installation
+- ambient field simulation and weather systems (see `ATMOSPHERE.md`)
+- motif library and material language composition (see `PLACE_GRAMMAR.md`)
+- world-side animation binding through the animation registry (see `ANIMATION_REGISTRY.md`)
+- companion integration into the scene via composition modes (see `COMPANION_ORGANISM.md`)
+
+Does not own:
+
+- language-model policy
+- durable memory decisions
+- terminal glyph rendering
+
+The world layer produces a semantic scene graph. The shell renders it. The world layer is strictly upstream of the renderer; nothing in the render pipeline chooses meaning on its own.
+
 ### Shell
 
 Owns:
@@ -60,6 +81,28 @@ Does not own:
 ## Shared Boundary
 
 `layers/shared` holds canonical IDs, event envelopes, seeded randomness rules, time handling, and cross-layer schemas. Shared code may normalize data, but it must not become a hidden fourth application layer.
+
+## World Layer Pipeline
+
+See `WORLD_GENERATION.md` for the full nine-stage invisible-first pipeline. Conceptually it runs:
+
+1. spatial skeleton
+2. invisible world fields
+3. biome grammar
+4. story scars
+5. focal object pass
+6. atmospheric pass
+7. companion integration (writes back onto the scene)
+8. render synthesis (shell)
+9. runtime animation (shell timing)
+
+The prime rule: never generate raw ASCII first. Generate invisible world logic first, then render. The renderer is the last pass, not the first. The scene equation
+
+```
+scene = Biome + StoryEvent + Mood + FocalObject + EnvironmentalWeather + ScarType + AgentState + MemoryEcho
+```
+
+is a first-class object stored on every scene so scenes can be regenerated, remixed, and inspected by story rather than by coordinates.
 
 ## Capability-Aware Rendering Strategy
 
@@ -122,16 +165,32 @@ The text and command surface always wins readability conflicts. Calm and clarity
 - portrait compositor
 - glyph-language registry
 - animation scheduler
+- animation behavior registry
 - ambient field engine
+- environmental weather engine
 - event distortion engine
 - render diff engine
+- scene equation resolver
+- biome grammar registry
+- layout idiom registry
+- scar package registry
+- focal object registry
+- material language registry
+- motif library registry
+- palette doctrine registry
+- world field registry and simulator
+- semantic cell store
+- companion DNA registry
+- composition mode registry
+- lineage registry
 - command router
 - session manager
 - mode manager
 - memory manager
 - artifact manager
 - memory-to-symbol mapper
-- module loader
+- memory-to-world echo mapper
+- pack loader (module + world-gen content classes)
 - optional hybrid graphics adapter
 - model/provider adapter
 - tool/action bridge

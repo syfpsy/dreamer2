@@ -1,0 +1,23 @@
+{
+  "id": "behavior.flow-field-drift",
+  "version": "0.1.0",
+  "class": "animation-behavior",
+  "label": "Flow Field Drift",
+  "family": "flow-drift",
+  "targetKinds": ["weather", "region", "field"],
+  "inputFields": ["field.signal"],
+  "timing": { "cadenceMinMs": 700, "cadenceMaxMs": 2400 },
+  "glyphFamilies": ["soft-signal"],
+  "familySubstitutionRules": ["within-family-only"],
+  "densityCapOverride": 0.08,
+  "motionBudgetCost": "medium",
+  "tierVariants": {
+    "pure-text": { "magnitude": 0.3, "axisOnly": true },
+    "rich-unicode": { "magnitude": 0.5 }
+  },
+  "compatibleBiomes": ["*"],
+  "compatibleMaterials": ["*"],
+  "narrativeMeaning": "slow directional drift of low-energy signal",
+  "fallbackBehaviorId": "behavior.anchor-pulse",
+  "notes": "Vector-guided sparse particle drift along a field axis. Capped by weather or biome density."
+}

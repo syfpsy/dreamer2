@@ -1,0 +1,17 @@
+{
+  "id": "equation.signal-chapel.reverent-instability",
+  "version": "0.1.0",
+  "class": "scene-equation",
+  "label": "Signal Chapel, reverent instability",
+  "biomeId": "place.signal-chapel",
+  "layoutIdiomId": "layout.ring-sanctum",
+  "focalObjectId": "focal.broken-halo-terminal",
+  "weatherId": "weather.slow-signal-dust",
+  "scarIds": ["scar.failed-memory-extraction"],
+  "agentState": "listening",
+  "compositionModeId": "composition.shrine",
+  "memoryEchoRefs": [],
+  "seed": "signal-chapel-alpha",
+  "mood": "reverent-instability",
+  "notes": "Reference preset for Slice 3 Atmosphere Engine. Scar applies only when memory state carries a failed extraction; composition mode falls back to walker if shrine is unavailable."
+}

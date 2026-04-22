@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/animation/behavior-module.schema.json",
+  "title": "Animation Behavior Module",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "class",
+    "label",
+    "family",
+    "targetKinds",
+    "glyphFamilies",
+    "timing",
+    "motionBudgetCost"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "animation-behavior" },
+    "label": { "type": "string" },
+    "family": {
+      "type": "string",
+      "enum": ["flow-drift", "pulse-breath", "reveal-scan", "decay-residue", "symbolic-event", "simulation"]
+    },
+    "targetKinds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["cell", "region", "field", "prop", "scar", "focal", "companion-slot", "companion-object", "weather"]
+      }
+    },
+    "inputFields": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cadenceMinMs", "cadenceMaxMs"],
+      "properties": {
+        "cadenceMinMs": { "type": "integer", "minimum": 16 },
+        "cadenceMaxMs": { "type": "integer", "minimum": 16 },
+        "burstMs": { "type": "integer" },
+        "cooldownMs": { "type": "integer" }
+      }
+    },
+    "glyphFamilies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "familySubstitutionRules": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "densityCapOverride": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "tierVariants": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "motionBudgetCost": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "compatibleBiomes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "compatibleMaterials": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "narrativeMeaning": { "type": "string" },
+    "fallbackBehaviorId": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/world/layout-idiom.schema.json",
+  "title": "Layout Idiom",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "class", "label", "topology"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "layout-idiom" },
+    "label": { "type": "string" },
+    "topology": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["shape"],
+      "properties": {
+        "shape": {
+          "type": "string",
+          "enum": ["chamber-complex", "vertical-shaft", "ring", "relay-spine", "branching-trenches", "radial", "broken-grid", "single-hall", "machine-garden", "amphitheater", "containment-grid", "observatory-lens", "flooded-lattice"]
+        },
+        "dominantAxis": {
+          "type": "string",
+          "enum": ["horizontal", "vertical", "radial", "none"]
+        },
+        "minDimensions": {
+          "type": "object",
+          "properties": {
+            "cols": { "type": "integer" },
+            "rows": { "type": "integer" }
+          }
+        },
+        "focalZone": {
+          "type": "string",
+          "enum": ["center", "top-third", "bottom-third", "left-third", "right-third", "cycle"]
+        },
+        "silenceZones": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "trafficLanes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "compatibleBiomes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  }
+}

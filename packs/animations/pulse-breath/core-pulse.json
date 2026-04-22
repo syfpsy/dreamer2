@@ -1,0 +1,22 @@
+{
+  "id": "behavior.core-pulse",
+  "version": "0.1.0",
+  "class": "animation-behavior",
+  "label": "Core Pulse",
+  "family": "pulse-breath",
+  "targetKinds": ["companion-slot", "focal", "cell"],
+  "inputFields": ["field.signal"],
+  "timing": { "cadenceMinMs": 800, "cadenceMaxMs": 1800 },
+  "glyphFamilies": ["dense-pressure", "symbolic"],
+  "familySubstitutionRules": ["within-family-only"],
+  "motionBudgetCost": "low",
+  "tierVariants": {
+    "pure-text": { "magnitude": 0.3 },
+    "rich-unicode": { "magnitude": 0.5 }
+  },
+  "compatibleBiomes": ["*"],
+  "compatibleMaterials": ["material.shrine-plating", "material.cable-veined-stone"],
+  "narrativeMeaning": "a focal carrying thought",
+  "fallbackBehaviorId": "behavior.anchor-pulse",
+  "notes": "Local density pulse in a core region or focal. Never full-body."
+}

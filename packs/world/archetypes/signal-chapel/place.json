@@ -1,0 +1,70 @@
+{
+  "id": "place.signal-chapel",
+  "version": "0.1.0",
+  "class": "place-archetype",
+  "label": "Signal Chapel",
+  "emotionalPosture": "reverent, attentive",
+  "compatibleLayoutIdioms": [
+    "layout.ring-sanctum",
+    "layout.radial-shrine",
+    "layout.single-hall"
+  ],
+  "materialFamilies": [
+    { "id": "material.shrine-plating", "baseRatio": 0.45 },
+    { "id": "material.cable-veined-stone", "baseRatio": 0.35 },
+    { "id": "material.stitched-membrane", "baseRatio": 0.2 }
+  ],
+  "motifSet": [
+    "motif.segmented-ring",
+    "motif.stepped-halo",
+    "motif.vow-ring",
+    "motif.prayer-bracket",
+    "motif.seam-stitch"
+  ],
+  "glyphFamilyBias": {
+    "structural": 0.45,
+    "soft-signal": 0.30,
+    "dense-pressure": 0.08,
+    "decay": 0.07,
+    "symbolic": 0.10
+  },
+  "paletteDoctrineRef": "palette.sacred-machine-default",
+  "allowedAmbientFields": [
+    "ambient.signal-drift",
+    "ambient.sacred-halo-bloom",
+    "ambient.memory-dust"
+  ],
+  "allowedWeatherSystems": [
+    "weather.slow-signal-dust",
+    "weather.resonance-ripples"
+  ],
+  "allowedScarPackages": [
+    "scar.failed-memory-extraction",
+    "scar.ritual-lock"
+  ],
+  "allowedFocalObjects": [
+    "focal.broken-halo-terminal",
+    "focal.shrine-engine"
+  ],
+  "allowedCompositionModes": [
+    "composition.shrine",
+    "composition.walker",
+    "composition.projection"
+  ],
+  "silenceToDetailRatio": 0.72,
+  "lightDoctrine": "reverent",
+  "motionBudget": {
+    "center": 0.2,
+    "edge": 0.4,
+    "ambient": 0.25,
+    "weather": 0.2,
+    "focal": 0.45
+  },
+  "worldFields": [
+    "field.signal",
+    "field.memory_resonance",
+    "field.damage",
+    "field.sacredness"
+  ],
+  "notes": "Reverent, attentive chamber. Focal terminal carries the compositional weight. Silence is the default; detail clusters near meaning."
+}

@@ -1,0 +1,46 @@
+{
+  "id": "scar.failed-memory-extraction",
+  "version": "0.1.0",
+  "class": "scar-package",
+  "label": "Failed Memory Extraction",
+  "kind": "failed-memory-extraction",
+  "affinityBiomes": [
+    "place.signal-chapel",
+    "place.archive-shaft",
+    "place.memory-nursery",
+    "place.halo-vault"
+  ],
+  "incompatibleBiomes": [
+    "place.flooded-switchyard",
+    "place.reactor-crypt"
+  ],
+  "topologyEffects": [
+    { "effect": "seam-open-at-focal-edge", "intensity": 0.4, "region": "focal-ring" },
+    { "effect": "stitched-repair-trace", "intensity": 0.3, "region": "traffic-lane" }
+  ],
+  "fieldEffects": [
+    { "field": "field.damage", "delta": 0.25, "falloff": 0.3, "region": "focal-ring" },
+    { "field": "field.memory_resonance", "delta": 0.35, "falloff": 0.25, "region": "focal" },
+    { "field": "field.signal", "delta": -0.1, "falloff": 0.2, "region": "focal-ring" }
+  ],
+  "materialEffects": [
+    {
+      "material": "material.shrine-plating",
+      "addMotifs": ["motif.seam-stitch"]
+    }
+  ],
+  "motifBias": [
+    { "motif": "motif.seam-stitch", "weight": 0.6 },
+    { "motif": "motif.vow-ring", "weight": 0.3 }
+  ],
+  "animationBindings": [
+    "behavior.ghost-trail",
+    "behavior.relic-phase"
+  ],
+  "activationRules": {
+    "conditionalOn": "memory-state",
+    "requiresMemoryTag": "failed-extraction"
+  },
+  "narrativeMeaning": "A memory was reached for and did not return cleanly. The chapel remembers.",
+  "notes": "Conditional: only applies when a failed extraction is recorded in memory. Keeps the biome silence ratio; only the focal ring and one traffic lane carry traces."
+}

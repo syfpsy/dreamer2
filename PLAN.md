@@ -2,11 +2,12 @@
 
 ## Non-Negotiables
 
-- Do not collapse `Shell`, `Mind`, and `Memory` into one runtime blob.
+- Do not collapse `Shell`, `Mind`, `Memory`, and `World` into one runtime blob.
 - Do not let portrait art become a single hardcoded ASCII file.
 - Do not hide continuity only inside transcript text.
 - Do not introduce fake terminal flavor with commands that do not map to real subsystems.
 - Do not overbuild the first slice into a framework before the product's emotional core is proven.
+- Never generate raw ASCII first. Generate invisible world logic first, then render. The renderer is the last pass, not the first. See `WORLD_GENERATION.md` and `WORLDGEN.md` for the world-generation doctrine.
 
 ## Design Priorities
 

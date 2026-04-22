@@ -37,19 +37,47 @@ Ship:
 - gallery timeline with first snapshots and milestones
 - `memory`, `gallery`, and `forget` commands
 
-## Vertical Slice 3: Procedural Packs
+## Vertical Slice 3: Atmosphere Engine (World Soul)
+
+Goal: prove the world-generation soul. Not every biome, not full gameplay. One place that feels authored, remembered, and alive, with the companion inside it.
 
 Ship:
 
-- module loader
-- pack registry composition
+- scene equation object resolved per scene
+- semantic cell grid with a minimal field set (`signal`, `memory_resonance`, `damage`, `sacredness`)
+- one place archetype manifest (Signal Chapel) with palette doctrine, motif set, material families, and silence ratio
+- one layout idiom (ring-sanctum) instantiated from the archetype
+- one scar package (failed-memory-extraction) applied conditionally from memory state
+- one focal object generator (broken-halo-terminal) producing a declared write-back on the scene
+- one weather system (slow-signal-dust) bound to the biome
+- one companion composition mode (shrine) plus a fallback (walker)
+- six animation behavior modules (`breath-offset`, `core-pulse`, `anchor-pulse`, `flow-field-drift`, `ghost-trail`, `relic-phase`)
+- render synthesis pass that reads the scene graph and assigns glyph, palette role, density, and animation binding per cell
+- pack registry loading for every new content class with schema validation
+- full scene reproducibility from the scene equation object
+
+Exit criteria:
+
+- the Signal Chapel reads as reverent-instability in both `pure-text` and `rich-unicode`
+- the focal object becomes the compositional center of mass without flooding the screen
+- the failed-memory-extraction scar visibly shapes the chapel when the user has a recent failed memory; absent otherwise
+- the companion appears in `shrine` mode inside the chapel and writes back to field values
+- regeneration from the same scene equation produces the same scene
+- the existing Slice 1 and Slice 2 behaviors remain intact
+
+## Vertical Slice 4: Procedural Packs
+
+Ship:
+
 - installable ambient and distortion behavior packs
+- additional biome packs (`archive-shaft`, `reactor-crypt`, `scar-garden`) loaded at runtime without hardcoding
+- additional scar and focal packs
 - optional companion entities
 - unlockable portrait variants and mutation hooks
 - richer capability-aware rendering for `rich-unicode`
-- theme switching without breaking part semantics
+- theme switching (palette remap) without breaking part or biome semantics
 
-## Vertical Slice 4: Deeper Behavior
+## Vertical Slice 5: Deeper Behavior
 
 Ship:
 
@@ -59,7 +87,7 @@ Ship:
 - reflective dream subsystem with guardrails
 - richer companion roles tied to real subsystem responsibilities
 
-## Vertical Slice 5: Productization
+## Vertical Slice 6: Productization
 
 Ship:
 

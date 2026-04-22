@@ -1,0 +1,24 @@
+{
+  "id": "weather.slow-signal-dust",
+  "version": "0.1.0",
+  "class": "weather-system",
+  "label": "Slow Signal Dust",
+  "dominantAxis": "horizontal",
+  "glyphFamilies": ["soft-signal"],
+  "paletteRoles": ["energy_or_event", "dim_support"],
+  "densityBudget": {
+    "absoluteCap": 0.08,
+    "perRegionCap": 0.04
+  },
+  "cadenceWindowMs": { "min": 900, "max": 2800 },
+  "interactionWithAgent": "align",
+  "interactionWithFocal": "halo",
+  "compatibleBiomes": [
+    "place.signal-chapel",
+    "place.halo-vault",
+    "place.choir-engine",
+    "place.archive-shaft"
+  ],
+  "animationBinding": "behavior.flow-field-drift",
+  "notes": "Sparse, slow, calm. Drifts horizontally with gentle alignment toward the focal halo."
+}

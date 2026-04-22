@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/portrait/composition-mode.schema.json",
+  "title": "Composition Mode",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "class", "label"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "composition-mode" },
+    "label": { "type": "string" },
+    "mode": {
+      "type": "string",
+      "enum": ["shrine", "walker", "projection", "embedded", "remote-presence"]
+    },
+    "slotVisibility": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "motionMultipliers": {
+      "type": "object",
+      "additionalProperties": { "type": "number" }
+    },
+    "paletteBias": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "glyphFamilyBias": {
+      "type": "object",
+      "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+    },
+    "sceneWriteBackRules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["effect"],
+        "properties": {
+          "effect": { "type": "string" },
+          "fieldId": { "type": "string" },
+          "delta": { "type": "number" }
+        }
+      }
+    },
+    "compatibleBiomes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "fallbackModeId": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}

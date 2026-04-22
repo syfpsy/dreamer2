@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/world/scene-equation.schema.json",
+  "title": "Scene Equation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["biomeId", "focalObjectId", "agentState", "seed"],
+  "properties": {
+    "id": { "type": "string" },
+    "label": { "type": "string" },
+    "biomeId": { "type": "string" },
+    "layoutIdiomId": { "type": "string" },
+    "focalObjectId": { "type": "string" },
+    "weatherId": { "type": "string" },
+    "scarIds": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "agentState": { "type": "string" },
+    "compositionModeId": { "type": "string" },
+    "memoryEchoRefs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "seed": { "type": ["string", "integer"] },
+    "mood": { "type": "string" },
+    "packVersions": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  }
+}

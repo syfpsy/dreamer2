@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/style/motif.schema.json",
+  "title": "Motif",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "class", "label", "silhouetteRule"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "class": { "const": "motif" },
+    "label": { "type": "string" },
+    "silhouetteRule": {
+      "type": "string",
+      "description": "A short authored rule describing the recognizable form (e.g., 'horizontal three-bar with vertical drop')."
+    },
+    "compatibleMaterials": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "compatibleGlyphFamilies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "rotationPolicy": {
+      "type": "string",
+      "enum": ["none", "90", "90-180", "any"]
+    },
+    "mirrorPolicy": {
+      "type": "string",
+      "enum": ["none", "horizontal", "vertical", "any"]
+    },
+    "narrativeMeaning": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}
