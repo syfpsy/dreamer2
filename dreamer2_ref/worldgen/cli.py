@@ -13,9 +13,8 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
-from typing import List, Optional
 
-from .pipeline import generate_scene, synthesize, render_to_text
+from .pipeline import generate_scene, render_to_text, synthesize
 from .registry import load_registry
 from .scene_equation import SceneEquation
 
@@ -23,7 +22,7 @@ from .scene_equation import SceneEquation
 DEFAULT_EQUATION_PATH = "packs/world/scene-equations/signal-chapel-reverent-instability.json"
 
 
-def main(argv: Optional[List[str]] = None) -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Dreamer2 world-generation pipeline")
     parser.add_argument(
         "--root",

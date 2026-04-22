@@ -7,7 +7,7 @@ Geometry only; no meaning. Materials and meaning are assigned by later stages.
 from __future__ import annotations
 
 import math
-from typing import Any, Dict, Tuple
+from typing import Any
 
 from .cells import SemanticCell, SceneGraph
 from .registry import Registry
@@ -17,6 +17,8 @@ from .streams import stream
 
 DEFAULT_WIDTH = 64
 DEFAULT_HEIGHT = 22
+MIN_WIDTH = 24
+MIN_HEIGHT = 10
 
 
 def instantiate(
@@ -26,6 +28,11 @@ def instantiate(
     width: int = DEFAULT_WIDTH,
     height: int = DEFAULT_HEIGHT,
 ) -> SceneGraph:
+    # Enforce a minimum grid so topology passes never produce degenerate
+    # scenes (negative radii, inner ring larger than outer ring, etc.).
+    width = max(MIN_WIDTH, width)
+    height = max(MIN_HEIGHT, height)
+
     cells = [
         [SemanticCell(type="void", material=None, openness=1.0) for _ in range(width)]
         for _ in range(height)
@@ -63,13 +70,16 @@ def _apply_ring_sanctum(
     scene: SceneGraph,
     equation: SceneEquation,
     registry: Registry,
-    layout: Dict[str, Any],
+    layout: dict[str, Any],
 ) -> None:
     width, height = scene.width, scene.height
     cx = width // 2
     cy = height // 2
-    outer_r = min(cx - 2, cy - 2)
-    inner_r = max(outer_r - 6, 3)
+    # Clamp radii so the ring remains well-formed even on small grids.
+    outer_r = max(4, min(cx - 2, cy - 2))
+    inner_r = max(3, min(outer_r - 3, outer_r - 6))
+    if inner_r >= outer_r:
+        inner_r = max(2, outer_r - 2)
 
     rng = stream(equation.seed, "skeleton.ring-sanctum")
 

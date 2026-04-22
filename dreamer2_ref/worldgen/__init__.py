@@ -15,14 +15,14 @@ from .registry import Registry, load_registry, RegistryError
 from .pipeline import generate_scene, synthesize, render_to_text
 
 __all__ = [
-    "SemanticCell",
-    "SceneGraph",
-    "RenderedCell",
-    "SceneEquation",
     "Registry",
     "RegistryError",
-    "load_registry",
+    "RenderedCell",
+    "SceneEquation",
+    "SceneGraph",
+    "SemanticCell",
     "generate_scene",
-    "synthesize",
+    "load_registry",
     "render_to_text",
+    "synthesize",
 ]

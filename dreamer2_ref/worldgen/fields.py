@@ -9,7 +9,7 @@ for the first slice.
 from __future__ import annotations
 
 import math
-from typing import Iterable, Tuple
+from collections.abc import Iterable
 
 from .cells import SceneGraph
 from .registry import Registry
@@ -35,7 +35,7 @@ def seed_base(scene: SceneGraph, equation: SceneEquation, registry: Registry) ->
 
 def raise_field_radial(
     scene: SceneGraph,
-    center: Tuple[int, int],
+    center: tuple[int, int],
     field_id: str,
     delta: float,
     falloff: float = 0.3,
@@ -60,7 +60,7 @@ def raise_field_radial(
 
 def raise_field_region(
     scene: SceneGraph,
-    region_cells: Iterable[Tuple[int, int]],
+    region_cells: Iterable[tuple[int, int]],
     field_id: str,
     delta: float,
 ) -> None:

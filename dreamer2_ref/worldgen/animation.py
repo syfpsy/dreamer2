@@ -8,8 +8,6 @@ behavior when a module is incompatible with the biome or tier.
 
 from __future__ import annotations
 
-from typing import Dict, Optional
-
 from .cells import AnimationBinding, SceneGraph
 from .registry import Registry
 from .scene_equation import SceneEquation
@@ -74,7 +72,7 @@ def _resolve_behavior(
     registry: Registry,
     behavior_id: str,
     biome_id: str,
-) -> Optional[Dict]:
+) -> dict | None:
     visited: set = set()
     candidate_id = behavior_id
 

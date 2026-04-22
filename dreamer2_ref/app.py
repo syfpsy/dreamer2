@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import hashlib
-import json
 import math
 import os
 import select
@@ -959,7 +958,6 @@ class DreamerApp:
         visible_artifacts = self._visible_artifacts()
         companion_count = len(visible_companions)
         memory_count = len(self.state["durableMemories"])
-        artifact_titles = ", ".join(artifact["title"] for artifact in visible_artifacts[-2:]) or "none"
         active_event = self.transient_events[-1].kind if self.transient_events else "stable"
         panel_layouts = self._panel_layouts(scene)
 
@@ -1536,7 +1534,7 @@ class TerminalSession(AbstractContextManager["TerminalSession"]):
         self.renderer = renderer
         self.on_exit = on_exit
 
-    def __enter__(self) -> "TerminalSession":
+    def __enter__(self) -> TerminalSession:
         self.renderer.enter()
         return self
 
@@ -1551,7 +1549,7 @@ class InputPump(AbstractContextManager["InputPump"]):
         self._fd: int | None = None
         self._termios_settings: Any = None
 
-    def __enter__(self) -> "InputPump":
+    def __enter__(self) -> InputPump:
         if not self._windows:
             import termios
             import tty

@@ -8,16 +8,15 @@ from __future__ import annotations
 
 import hashlib
 import random
-from typing import Union
 
 
-def stream(seed: Union[str, int], name: str) -> random.Random:
+def stream(seed: str | int, name: str) -> random.Random:
     """Return a fresh random.Random seeded by the named stream."""
-    blob = f"{seed}::{name}".encode("utf-8")
+    blob = f"{seed}::{name}".encode()
     digest = hashlib.sha256(blob).digest()
     return random.Random(int.from_bytes(digest[:8], "big"))
 
 
-def stable_hash(seed: Union[str, int], *parts: Union[str, int]) -> int:
-    blob = "::".join([str(seed), *(str(p) for p in parts)]).encode("utf-8")
+def stable_hash(seed: str | int, *parts: str | int) -> int:
+    blob = "::".join([str(seed), *(str(p) for p in parts)]).encode()
     return int.from_bytes(hashlib.sha256(blob).digest()[:8], "big")

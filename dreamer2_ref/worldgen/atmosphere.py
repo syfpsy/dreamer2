@@ -7,7 +7,7 @@ own density budget and bias their dominant axis through the scene.
 
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 from .cells import SceneGraph
 from .registry import Registry
@@ -28,7 +28,12 @@ def apply(scene: SceneGraph, equation: SceneEquation, registry: Registry) -> Non
             _apply_weather(scene, weather, silence, equation)
 
 
-def _apply_weather(scene: SceneGraph, weather: Dict[str, Any], silence: float, equation: SceneEquation) -> None:
+def _apply_weather(
+    scene: SceneGraph,
+    weather: dict[str, Any],
+    silence: float,
+    equation: SceneEquation,
+) -> None:
     dominant_axis = weather.get("dominantAxis", "horizontal")
     density_budget = weather.get("densityBudget", {})
     absolute_cap = float(density_budget.get("absoluteCap", 0.08))
@@ -36,6 +41,7 @@ def _apply_weather(scene: SceneGraph, weather: Dict[str, Any], silence: float, e
     effective_density = max(0.0, absolute_cap * (1.0 - silence * 0.5))
 
     rng = stream(equation.seed, f"weather.{weather['id']}")
+    animation_binding = weather.get("animationBinding", "behavior.flow-field-drift")
 
     cx = scene.width // 2
     cy = scene.height // 2
@@ -59,12 +65,12 @@ def _apply_weather(scene: SceneGraph, weather: Dict[str, Any], silence: float, e
             focal_bias = 0.5 + 0.5 * signal
 
             if rng.random() < effective_density * axis_bias * focal_bias:
+                # Void cells cannot carry visible weather; skip them.
                 if cell.type == "void":
-                    cell.active_state = "humming"
-                else:
-                    cell.active_state = "humming"
+                    continue
+                cell.active_state = "humming"
                 if cell.glyph_family not in ("soft-signal", "symbolic"):
                     cell.glyph_family = "soft-signal"
-                if cell.palette_role in ("structural",):
+                if cell.palette_role == "structural":
                     cell.palette_role = "energy_or_event"
-                cell.motion_tag = weather.get("animationBinding", "behavior.flow-field-drift")
+                cell.motion_tag = animation_binding

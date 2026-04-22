@@ -19,28 +19,28 @@ runtime advancement happens in the shell loop).
 
 from __future__ import annotations
 
-from pathlib import Path
-from typing import Iterable, List, Optional
+from collections.abc import Iterable
 
 from .animation import bind as bind_animation
 from .atmosphere import apply as apply_atmosphere
 from .biome import apply_grammar as apply_biome
-from .cells import SceneGraph, RenderedCell
+from .cells import RenderedCell, SceneGraph
 from .fields import seed_base as seed_fields
 from .focal import install as install_focal
 from .integration import place_companion
-from .registry import Registry, load_registry
+from .registry import Registry
 from .scars import apply as apply_scars
 from .scene_equation import SceneEquation
 from .skeleton import instantiate as instantiate_skeleton
-from .synthesis import synthesize as synthesize_cells, render_to_text as _render_to_text
+from .synthesis import render_to_text as _render_to_text
+from .synthesis import synthesize as synthesize_cells
 
 
 def generate_scene(
     equation: SceneEquation,
     registry: Registry,
     *,
-    memory_tags: Optional[Iterable[str]] = None,
+    memory_tags: Iterable[str] | None = None,
     width: int = 64,
     height: int = 22,
 ) -> SceneGraph:
@@ -60,12 +60,12 @@ def synthesize(
     registry: Registry,
     *,
     tier: str = "pure-text",
-) -> List[List[RenderedCell]]:
+) -> list[list[RenderedCell]]:
     return synthesize_cells(scene, scene.equation, registry, tier=tier)
 
 
 def render_to_text(
-    rendered: List[List[RenderedCell]],
+    rendered: list[list[RenderedCell]],
     *,
     colorize: bool = False,
 ) -> str:

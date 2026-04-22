@@ -4,7 +4,7 @@ import os
 import sys
 from dataclasses import dataclass
 from io import TextIOBase
-from typing import Iterable
+from collections.abc import Iterable
 
 
 STYLE_CODES = {

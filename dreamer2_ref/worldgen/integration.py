@@ -7,7 +7,7 @@ anchor if the mode is shrine.
 
 from __future__ import annotations
 
-from typing import Any, Dict, Optional
+from typing import Any
 
 from .cells import SceneGraph
 from .fields import raise_field_radial
@@ -15,7 +15,7 @@ from .registry import Registry
 from .scene_equation import SceneEquation
 
 
-def place_companion(scene: SceneGraph, equation: SceneEquation, registry: Registry) -> Optional[str]:
+def place_companion(scene: SceneGraph, equation: SceneEquation, registry: Registry) -> str | None:
     archetype = registry.archetypes.get(equation.biome_id)
     allowed_order = list(archetype.get("allowedCompositionModes", []) if archetype else [])
     allowed_set = set(allowed_order)
@@ -45,10 +45,10 @@ def place_companion(scene: SceneGraph, equation: SceneEquation, registry: Regist
 
 def _resolve_mode(
     registry: Registry,
-    preferred_id: Optional[str],
+    preferred_id: str | None,
     allowed_order: list,
     allowed_set: set,
-) -> Optional[Dict[str, Any]]:
+) -> dict[str, Any] | None:
     visited: set = set()
     candidate_id = preferred_id
 

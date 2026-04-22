@@ -74,8 +74,13 @@ def save_runtime_state(root: Path, state: dict[str, Any]) -> None:
     state_dir = _state_dir(root)
     state_dir.mkdir(parents=True, exist_ok=True)
     state_path = state_dir / "runtime_state.json"
-    with state_path.open("w", encoding="utf-8") as handle:
+    # Write to a sibling temp file and atomically replace. This guarantees
+    # that an interrupted save (power loss, Ctrl-C, OOM) cannot leave the
+    # canonical state file truncated or partially written.
+    tmp_path = state_path.with_suffix(state_path.suffix + ".tmp")
+    with tmp_path.open("w", encoding="utf-8") as handle:
         json.dump(state, handle, indent=2)
+    os.replace(tmp_path, state_path)
 
 
 def append_session_event(root: Path, actor: str, event_type: str, payload: dict[str, Any]) -> None:

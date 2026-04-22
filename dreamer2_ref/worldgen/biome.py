@@ -8,9 +8,9 @@ All choices remain semantic; no glyph characters are picked here.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
-from .cells import GLYPH_FAMILIES, SceneGraph
+from .cells import SceneGraph
 from .registry import Registry
 from .scene_equation import SceneEquation
 from .streams import stream
@@ -21,11 +21,10 @@ def apply_grammar(scene: SceneGraph, equation: SceneEquation, registry: Registry
     if archetype is None:
         return
 
-    material_families: List[Dict[str, Any]] = archetype.get("materialFamilies", [])
+    material_families: list[dict[str, Any]] = archetype.get("materialFamilies", [])
     if not material_families:
         return
 
-    rng = stream(equation.seed, "biome.material-assignment")
     family_weights = archetype.get("glyphFamilyBias", {})
 
     for y, row in enumerate(scene.cells):
@@ -35,11 +34,17 @@ def apply_grammar(scene: SceneGraph, equation: SceneEquation, registry: Registry
                 cell.palette_role = "dim_support"
                 continue
 
-            material_id = _pick_material(material_families, cell.type, rng)
+            # Per-cell streams keep material, family, and silence decisions
+            # independent of grid iteration order. A scene regenerated at a
+            # different width or height still picks the same material for
+            # each (x, y) coordinate given the same seed.
+            material_rng = stream(equation.seed, f"cell.{x}.{y}.material")
+            material_id = _pick_material(material_families, cell.type, material_rng)
             cell.material = material_id
             material = registry.materials.get(material_id, {})
+            family_rng = stream(equation.seed, f"cell.{x}.{y}.family")
             cell.glyph_family = _pick_glyph_family(
-                cell.type, material, family_weights, stream(equation.seed, f"cell.{x}.{y}.family")
+                cell.type, material, family_weights, family_rng
             )
             cell.palette_role = _pick_palette_role(cell.type, material)
 
@@ -51,10 +56,10 @@ def apply_grammar(scene: SceneGraph, equation: SceneEquation, registry: Registry
 
     # Record silence ratio by marking peripheral cells quieter.
     silence_ratio = float(archetype.get("silenceToDetailRatio", 0.7))
-    _apply_silence_ratio(scene, silence_ratio, stream(equation.seed, "biome.silence"))
+    _apply_silence_ratio(scene, silence_ratio, equation)
 
 
-def _pick_material(material_families: List[Dict[str, Any]], cell_type: str, rng) -> str:
+def _pick_material(material_families: list[dict[str, Any]], cell_type: str, rng) -> str:
     if cell_type in ("wall", "arch"):
         # Favor structural materials for walls and arches.
         for entry in material_families:
@@ -70,6 +75,8 @@ def _pick_material(material_families: List[Dict[str, Any]], cell_type: str, rng)
 
     # Floors: weighted random from the declared families.
     total = sum(entry["baseRatio"] for entry in material_families)
+    if total <= 0:
+        return material_families[0]["id"]
     pick = rng.random() * total
     accum = 0.0
     for entry in material_families:
@@ -81,8 +88,8 @@ def _pick_material(material_families: List[Dict[str, Any]], cell_type: str, rng)
 
 def _pick_glyph_family(
     cell_type: str,
-    material: Dict[str, Any],
-    archetype_bias: Dict[str, float],
+    material: dict[str, Any],
+    archetype_bias: dict[str, float],
     rng,
 ) -> str:
     if cell_type in ("wall", "arch"):
@@ -92,7 +99,7 @@ def _pick_glyph_family(
     if not allowed:
         return "soft-signal"
 
-    weights: Dict[str, float] = {}
+    weights: dict[str, float] = {}
     for entry in allowed:
         family = entry["family"]
         material_weight = float(entry.get("weight", 0.0))
@@ -115,7 +122,7 @@ def _pick_glyph_family(
     return "soft-signal"
 
 
-def _pick_palette_role(cell_type: str, material: Dict[str, Any]) -> str:
+def _pick_palette_role(cell_type: str, material: dict[str, Any]) -> str:
     preferred = material.get("preferredPaletteRoles") or []
     if cell_type in ("wall", "arch"):
         return "structural"
@@ -126,12 +133,13 @@ def _pick_palette_role(cell_type: str, material: Dict[str, Any]) -> str:
     return "dim_support"
 
 
-def _apply_silence_ratio(scene: SceneGraph, silence_ratio: float, rng) -> None:
+def _apply_silence_ratio(scene: SceneGraph, silence_ratio: float, equation: SceneEquation) -> None:
     for y, row in enumerate(scene.cells):
         for x, cell in enumerate(row):
             if cell.type in ("wall", "arch", "niche"):
                 continue
-            if cell.type == "floor" and cell.glyph_family not in ("structural",):
+            if cell.type == "floor" and cell.glyph_family != "structural":
+                rng = stream(equation.seed, f"cell.{x}.{y}.silence")
                 if rng.random() < silence_ratio:
                     cell.active_state = "inert"
                 else:

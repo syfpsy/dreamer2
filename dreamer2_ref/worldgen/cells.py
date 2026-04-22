@@ -9,7 +9,6 @@ regenerated without touching glyph choice.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
 
 
 GLYPH_FAMILIES = (
@@ -26,17 +25,17 @@ PALETTE_ROLES = ("structural", "dim_support", "energy_or_event", "rare_anomaly")
 @dataclass
 class SemanticCell:
     type: str = "void"
-    material: Optional[str] = None
+    material: str | None = None
     openness: float = 1.0
     light_exposure: float = 0.0
-    fields: Dict[str, float] = field(default_factory=dict)
+    fields: dict[str, float] = field(default_factory=dict)
     glyph_family: str = "soft-signal"
     palette_role: str = "dim_support"
     active_state: str = "inert"
-    prop_occupancy: Optional[str] = None
-    motif_tag: Optional[str] = None
-    motion_tag: Optional[str] = None
-    dominant_influences: List[str] = field(default_factory=list)
+    prop_occupancy: str | None = None
+    motif_tag: str | None = None
+    motion_tag: str | None = None
+    dominant_influences: list[str] = field(default_factory=list)
 
     def field_value(self, field_id: str, default: float = 0.0) -> float:
         return self.fields.get(field_id, default)
@@ -46,22 +45,22 @@ class SemanticCell:
 class AnimationBinding:
     target: str
     behavior_id: str
-    cell_xy: Optional[tuple] = None
-    region: Optional[str] = None
+    cell_xy: tuple | None = None
+    region: str | None = None
     budget_cost: str = "low"
 
 
 @dataclass
 class SceneGraph:
-    equation: "SceneEquation"
+    equation: SceneEquation
     width: int
     height: int
-    cells: List[List[SemanticCell]]
-    bindings: List[AnimationBinding] = field(default_factory=list)
-    pack_versions: Dict[str, str] = field(default_factory=dict)
-    applied_scars: List[str] = field(default_factory=list)
-    companion_mode_id: Optional[str] = None
-    focal_cell: Optional[tuple] = None
+    cells: list[list[SemanticCell]]
+    bindings: list[AnimationBinding] = field(default_factory=list)
+    pack_versions: dict[str, str] = field(default_factory=dict)
+    applied_scars: list[str] = field(default_factory=list)
+    companion_mode_id: str | None = None
+    focal_cell: tuple | None = None
 
     def cell_at(self, x: int, y: int) -> SemanticCell:
         return self.cells[y][x]
@@ -79,5 +78,5 @@ class RenderedCell:
 
 
 # Back-reference for type hinting only; avoids a circular import.
-from . import scene_equation as _scene_equation  # noqa: E402
+from . import scene_equation as _scene_equation
 SceneEquation = _scene_equation.SceneEquation  # type: ignore

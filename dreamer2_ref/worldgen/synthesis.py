@@ -8,15 +8,13 @@ chooses expression.
 
 from __future__ import annotations
 
-from typing import Dict, List
-
 from .cells import RenderedCell, SceneGraph
 from .registry import Registry
 from .scene_equation import SceneEquation
 from .streams import stable_hash
 
 
-GLYPH_POOLS: Dict[str, List[str]] = {
+GLYPH_POOLS: dict[str, list[str]] = {
     "structural": ["|", "/", "\\", "_", "-", "[", "]", "(", ")", "<", ">"],
     "soft-signal": [".", ",", "'", ":", "~"],
     "dense-pressure": ["#", "%", "@", "=", "+"],
@@ -26,7 +24,7 @@ GLYPH_POOLS: Dict[str, List[str]] = {
 
 
 # Per glyph family, tier-aware constrained pools can be added later.
-STRUCTURAL_BY_TYPE: Dict[str, List[str]] = {
+STRUCTURAL_BY_TYPE: dict[str, list[str]] = {
     "wall": ["|", "_", "-"],
     "arch": ["(", ")", "[", "]", "<", ">"],
     "niche": ["[", "]", "|"],
@@ -36,7 +34,7 @@ STRUCTURAL_BY_TYPE: Dict[str, List[str]] = {
 }
 
 
-ANSI_ROLE_FG: Dict[str, str] = {
+ANSI_ROLE_FG: dict[str, str] = {
     "structural": "37",
     "dim_support": "90",
     "energy_or_event": "36",
@@ -50,10 +48,10 @@ def synthesize(
     registry: Registry,
     *,
     tier: str = "pure-text",
-) -> List[List[RenderedCell]]:
-    rows: List[List[RenderedCell]] = []
+) -> list[list[RenderedCell]]:
+    rows: list[list[RenderedCell]] = []
     for y in range(scene.height):
-        row: List[RenderedCell] = []
+        row: list[RenderedCell] = []
         for x in range(scene.width):
             cell = scene.cell_at(x, y)
             row.append(_synthesize_cell(cell, equation, x, y))
@@ -121,16 +119,16 @@ def _density_for(cell) -> float:
 
 
 def render_to_text(
-    rendered: List[List[RenderedCell]],
+    rendered: list[list[RenderedCell]],
     *,
     colorize: bool = False,
 ) -> str:
-    lines: List[str] = []
+    lines: list[str] = []
     for row in rendered:
         if not colorize:
             lines.append("".join(cell.glyph for cell in row))
             continue
-        parts: List[str] = []
+        parts: list[str] = []
         last_color = None
         for cell in row:
             color = ANSI_ROLE_FG.get(cell.palette_role, "37")

@@ -8,7 +8,8 @@ focal ring and a traffic lane.
 
 from __future__ import annotations
 
-from typing import Any, Dict, Iterable, List, Tuple
+from collections.abc import Iterable
+from typing import Any
 
 from .cells import SceneGraph
 from .fields import raise_field_radial, raise_field_region
@@ -21,8 +22,8 @@ def apply(
     equation: SceneEquation,
     registry: Registry,
     memory_tags: Iterable[str],
-) -> List[str]:
-    applied: List[str] = []
+) -> list[str]:
+    applied: list[str] = []
     memory_tag_set = set(memory_tags or ())
 
     for scar_id in equation.scar_ids:
@@ -38,7 +39,7 @@ def apply(
     return applied
 
 
-def _should_apply(scar: Dict[str, Any], memory_tags: set) -> bool:
+def _should_apply(scar: dict[str, Any], memory_tags: set) -> bool:
     rules = scar.get("activationRules") or {}
     conditional_on = rules.get("conditionalOn")
     if conditional_on is None:
@@ -52,7 +53,7 @@ def _should_apply(scar: Dict[str, Any], memory_tags: set) -> bool:
     return True
 
 
-def _apply_scar(scene: SceneGraph, scar: Dict[str, Any], equation: SceneEquation) -> None:
+def _apply_scar(scene: SceneGraph, scar: dict[str, Any], equation: SceneEquation) -> None:
     if scene.focal_cell is None:
         return
 
@@ -91,7 +92,7 @@ def _apply_scar(scene: SceneGraph, scar: Dict[str, Any], equation: SceneEquation
         _stamp_motif_on_damaged_cells(scene, motif_id)
 
 
-def _traffic_lane_cells(scene: SceneGraph) -> List[Tuple[int, int]]:
+def _traffic_lane_cells(scene: SceneGraph) -> list[tuple[int, int]]:
     # A simple traffic lane along the mid-row entering from the left.
     y = scene.height // 2
     return [(x, y) for x in range(1, scene.width // 2 - 1) if scene.in_bounds(x, y)]

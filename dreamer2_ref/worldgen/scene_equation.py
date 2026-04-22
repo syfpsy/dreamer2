@@ -13,7 +13,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Union
+from typing import Any
 
 
 @dataclass
@@ -21,18 +21,18 @@ class SceneEquation:
     biome_id: str
     focal_object_id: str
     agent_state: str
-    seed: Union[str, int]
-    id: Optional[str] = None
-    label: Optional[str] = None
-    layout_idiom_id: Optional[str] = None
-    weather_id: Optional[str] = None
-    scar_ids: List[str] = field(default_factory=list)
-    composition_mode_id: Optional[str] = None
-    memory_echo_refs: List[str] = field(default_factory=list)
-    mood: Optional[str] = None
-    pack_versions: Dict[str, str] = field(default_factory=dict)
+    seed: str | int
+    id: str | None = None
+    label: str | None = None
+    layout_idiom_id: str | None = None
+    weather_id: str | None = None
+    scar_ids: list[str] = field(default_factory=list)
+    composition_mode_id: str | None = None
+    memory_echo_refs: list[str] = field(default_factory=list)
+    mood: str | None = None
+    pack_versions: dict[str, str] = field(default_factory=dict)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "id": self.id,
             "label": self.label,
@@ -50,7 +50,7 @@ class SceneEquation:
         }
 
     @classmethod
-    def from_dict(cls, payload: Dict[str, Any]) -> "SceneEquation":
+    def from_dict(cls, payload: dict[str, Any]) -> SceneEquation:
         return cls(
             id=payload.get("id"),
             label=payload.get("label"),
@@ -68,6 +68,6 @@ class SceneEquation:
         )
 
     @classmethod
-    def from_file(cls, path: Path) -> "SceneEquation":
+    def from_file(cls, path: Path) -> SceneEquation:
         with path.open("r", encoding="utf-8") as handle:
             return cls.from_dict(json.load(handle))

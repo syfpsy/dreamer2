@@ -7,8 +7,6 @@ and tags focal cells with dominant motif and active state.
 
 from __future__ import annotations
 
-from typing import Any, Dict
-
 from .cells import SceneGraph
 from .fields import raise_field_radial
 from .registry import Registry
