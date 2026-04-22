@@ -353,6 +353,9 @@ class DreamerApp:
             return
 
         if command == "soul":
+            if payload.strip().lower().startswith("place"):
+                self._render_soul_place()
+                return
             relic = self.state["unlockedParts"].get("relic", "relic.none")
             scar = self.state["unlockedParts"].get("scar", "scar.none")
             seed = self.assets.profile["seed"]["identity"]
@@ -518,6 +521,72 @@ class DreamerApp:
 
     def _queue_resurface_event(self) -> None:
         self._queue_event("memory-resurfacing", "distortion.relic-phase", 0.6)
+
+    def _render_soul_place(self) -> None:
+        try:
+            from .worldgen import (
+                SceneEquation,
+                load_registry,
+                generate_scene,
+                synthesize,
+                render_to_text,
+            )
+        except Exception as exc:  # pragma: no cover - defensive
+            self._append_log("shell", f"Place rendering unavailable: {exc}")
+            return
+
+        try:
+            registry = getattr(self, "_worldgen_registry", None)
+            if registry is None:
+                registry = load_registry(self.root)
+                self._worldgen_registry = registry
+
+            equation_path = (
+                self.root
+                / "packs"
+                / "world"
+                / "scene-equations"
+                / "signal-chapel-reverent-instability.json"
+            )
+            equation = SceneEquation.from_file(equation_path)
+
+            memory_tags: list[str] = []
+            for memory in self.state.get("durableMemories", []):
+                memory_tags.extend(memory.get("tags", []))
+                category = memory.get("category", "")
+                if category == "recovery":
+                    memory_tags.append("failed-extraction")
+
+            width = min(64, max(48, self.state.get("gridWidth", 64) or 64))
+            height = min(22, max(16, (self.state.get("gridHeight", 22) or 22) // 2))
+
+            scene = generate_scene(
+                equation,
+                registry,
+                memory_tags=memory_tags,
+                width=width,
+                height=height,
+            )
+            rendered = synthesize(scene, registry)
+            text = render_to_text(rendered)
+        except Exception as exc:  # pragma: no cover - defensive
+            self._append_log("shell", f"Place rendering failed: {exc}")
+            return
+
+        header_bits = [
+            f"place {equation.biome_id}",
+            f"layout {equation.layout_idiom_id or 'default'}",
+            f"focal {equation.focal_object_id}",
+            f"weather {equation.weather_id or 'none'}",
+            f"mode {scene.companion_mode_id or 'none'}",
+        ]
+        if scene.applied_scars:
+            header_bits.append("scars " + ",".join(scene.applied_scars))
+        self._append_log("shell", " | ".join(header_bits))
+
+        for line in text.splitlines():
+            self._append_log("scene", line if line else " ")
+        self._queue_resurface_event()
 
     def _invoke_companion_reply(self, user_message: str) -> None:
         provider = getattr(self, "_provider_cache", "unset")
@@ -1618,6 +1687,7 @@ def speaker_prefix(speaker: str) -> str:
         "shell": "shell>",
         "memory": "memory>",
         "companion": "aster>",
+        "scene": "scene>",
     }.get(speaker, f"{speaker}>")
 
 
@@ -1627,6 +1697,7 @@ def speaker_style(speaker: str) -> str:
         "shell": "signal",
         "memory": "symbolic",
         "companion": "ui_bright",
+        "scene": "ui_muted",
     }.get(speaker, "ui_muted")
 
 
