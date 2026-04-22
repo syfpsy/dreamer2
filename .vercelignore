@@ -1,0 +1,8 @@
+dreamer2_ref/web_assets/
+tests/
+.codex/
+state/
+*.md
+!README.md
+.git/
+__pycache__/

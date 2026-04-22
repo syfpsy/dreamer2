@@ -1,0 +1,63 @@
+{
+  "$schema": "../../../specs/schemas/packs/module-pack.schema.json",
+  "id": "module-pack.archive.ledger",
+  "version": "0.1.0",
+  "capabilities": [
+    "commands",
+    "panels",
+    "memory-artifacts",
+    "ambient-entities"
+  ],
+  "commandIds": [
+    "cmd.memory",
+    "cmd.gallery",
+    "cmd.forget",
+    "cmd.tweak",
+    "cmd.inspect",
+    "cmd.revise"
+  ],
+  "panelIds": [
+    "panel.memory.surface",
+    "panel.artifact.shelf"
+  ],
+  "artifactTypeIds": [
+    "artifact.relic.archive-lantern",
+    "artifact.scar.stitched-echo",
+    "artifact.gallery.card",
+    "artifact.orbit.fragment"
+  ],
+  "companionIds": [
+    "entity.archive-shard",
+    "entity.lantern-mote"
+  ],
+  "ambientBehaviorIds": [
+    "ambient.ghost-trace",
+    "ambient.warm-quiet"
+  ],
+  "distortionPresetIds": [
+    "distortion.relic-phase",
+    "distortion.dream-soft"
+  ],
+  "borderBehaviorIds": [],
+  "artifactRendererIds": [
+    "artifact.relic.archive-lantern",
+    "artifact.scar.stitched-echo",
+    "artifact.gallery.card",
+    "artifact.orbit.fragment"
+  ],
+  "overlayIds": [
+    "overlay.memory.resurfacing",
+    "overlay.recovery.stitch"
+  ],
+  "optionalModeIds": [
+    "standby",
+    "listening",
+    "dreaming",
+    "recovering"
+  ],
+  "behaviorHooks": [
+    "hook.memory.symbol-map",
+    "hook.artifact.relic-orbit"
+  ],
+  "notes": "Durable continuity, visible artifacts, and ledger inspection."
+}

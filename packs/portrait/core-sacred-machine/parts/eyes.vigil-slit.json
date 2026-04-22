@@ -1,0 +1,120 @@
+{
+  "$schema": "../../../../specs/schemas/portrait/portrait-part.schema.json",
+  "id": "eyes.vigil-slit",
+  "slot": "eyes",
+  "box": {
+    "width": 23,
+    "height": 11
+  },
+  "anchors": {},
+  "glyphFamilies": [
+    "soft-signal",
+    "dense-pressure"
+  ],
+  "paletteRole": "signal",
+  "paletteHints": {
+    "primary": "portrait.signal",
+    "dim": "portrait.structure",
+    "accent": "warning.rare"
+  },
+  "frames": [
+    {
+      "id": "base",
+      "lines": [
+        "                       ",
+        "                       ",
+        "        [ -- -- ]      ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       "
+      ]
+    },
+    {
+      "id": "focused",
+      "lines": [
+        "                       ",
+        "                       ",
+        "        [ == == ]      ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       "
+      ]
+    },
+    {
+      "id": "dream",
+      "lines": [
+        "                       ",
+        "                       ",
+        "        [ ~~ ~~ ]      ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       "
+      ]
+    }
+  ],
+  "stateProfiles": {
+    "standby": {
+      "frameId": "base",
+      "animation": "eye-flicker-rare",
+      "mutationIntensity": "low"
+    },
+    "listening": {
+      "frameId": "base",
+      "animation": "open-soft",
+      "mutationIntensity": "low"
+    },
+    "thinking": {
+      "frameId": "focused",
+      "animation": "scan-tight",
+      "mutationIntensity": "low"
+    },
+    "researching": {
+      "frameId": "focused",
+      "animation": "scan-sweep",
+      "mutationIntensity": "low"
+    },
+    "dreaming": {
+      "frameId": "dream",
+      "animation": "blur-drift",
+      "mutationIntensity": "medium"
+    },
+    "focused": {
+      "frameId": "focused",
+      "animation": "lock-steady",
+      "mutationIntensity": "none"
+    }
+  },
+  "proceduralHooks": [
+    "hook.eye.flicker",
+    "hook.eye.scan"
+  ],
+  "animationPersonality": "vigilant-flicker",
+  "mutationConstraints": {
+    "zone": "eyes",
+    "maxIntensity": "medium",
+    "preserveSilhouette": true
+  },
+  "unlockRules": [
+    "default"
+  ],
+  "fallbackPartId": "eyes.vigil-slit",
+  "narrativeMeaning": [
+    "calm vigilance",
+    "measured attention"
+  ]
+}

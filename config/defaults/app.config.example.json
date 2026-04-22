@@ -1,0 +1,50 @@
+{
+  "$schema": "../../specs/schemas/config/app-config.schema.json",
+  "appId": "dreamer2",
+  "profileId": "first-light",
+  "defaultThemeId": "theme.sacred-machine.default",
+  "loadedPortraitPacks": [
+    "portrait-pack.core.sacred-machine"
+  ],
+  "loadedModulePacks": [
+    "module-pack.core.rituals",
+    "module-pack.archive.ledger",
+    "module-pack.workshop.operations"
+  ],
+  "shell": {
+    "surface": "terminal",
+    "layout": "portrait-left-log-right",
+    "capabilityStrategy": "auto",
+    "minimumTier": "pure-text",
+    "preferredTier": "rich-unicode",
+    "ambientField": true,
+    "transmissionDistortion": "disciplined",
+    "diffRedraw": true,
+    "frameCadenceMs": 120
+  },
+  "mind": {
+    "defaultModeId": "standby",
+    "modelProvider": {
+      "adapterId": "provider.replace-me",
+      "policy": "replaceable"
+    },
+    "toolBridge": {
+      "adapterId": "actions.local",
+      "enabled": false
+    }
+  },
+  "memory": {
+    "persistenceAdapter": {
+      "adapterId": "store.file.local",
+      "strategy": "replaceable"
+    },
+    "retention": {
+      "sessionDays": 30,
+      "dreamDraftDays": 7
+    }
+  },
+  "observability": {
+    "noteLogPath": "./WORKLOG.md",
+    "eventLogPath": "./state/logs"
+  }
+}

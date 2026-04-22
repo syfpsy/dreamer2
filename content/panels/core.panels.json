@@ -1,0 +1,74 @@
+{
+  "panels": [
+    {
+      "id": "panel.status.core",
+      "zone": "top-right",
+      "summary": "Mode, provider, and shell heartbeat state.",
+      "refreshPolicy": "on-mode-or-session-change",
+      "visibleInModes": [
+        "standby",
+        "listening",
+        "thinking",
+        "building",
+        "researching",
+        "dreaming",
+        "recovering",
+        "focused"
+      ]
+    },
+    {
+      "id": "panel.transmission.log",
+      "zone": "center-right",
+      "summary": "Primary dialog and action trace.",
+      "refreshPolicy": "append-on-event",
+      "visibleInModes": [
+        "standby",
+        "listening",
+        "thinking",
+        "building",
+        "researching",
+        "dreaming",
+        "recovering",
+        "focused"
+      ]
+    },
+    {
+      "id": "panel.command.hints",
+      "zone": "bottom-right",
+      "summary": "Mode-aware command guidance and ritual shortcuts.",
+      "refreshPolicy": "on-mode-or-module-change",
+      "visibleInModes": [
+        "standby",
+        "listening",
+        "recovering",
+        "focused"
+      ]
+    },
+    {
+      "id": "panel.memory.surface",
+      "zone": "lower-left",
+      "summary": "Recent or durable memory surfaces with inspect affordances.",
+      "refreshPolicy": "on-memory-delta",
+      "visibleInModes": [
+        "standby",
+        "listening",
+        "dreaming",
+        "recovering",
+        "focused"
+      ]
+    },
+    {
+      "id": "panel.artifact.shelf",
+      "zone": "left-accent",
+      "summary": "Visible symbolic artifacts and evolution shelf.",
+      "refreshPolicy": "on-artifact-delta",
+      "visibleInModes": [
+        "standby",
+        "listening",
+        "dreaming",
+        "recovering",
+        "focused"
+      ]
+    }
+  ]
+}

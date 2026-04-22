@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/packs/module-pack.schema.json",
+  "title": "Module Pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "capabilities",
+    "commandIds",
+    "panelIds",
+    "artifactTypeIds",
+    "companionIds",
+    "ambientBehaviorIds",
+    "distortionPresetIds",
+    "borderBehaviorIds",
+    "artifactRendererIds",
+    "overlayIds"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "commandIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "panelIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "artifactTypeIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "companionIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ambientBehaviorIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "distortionPresetIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "borderBehaviorIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "artifactRendererIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "overlayIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "optionalModeIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "behaviorHooks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

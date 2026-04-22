@@ -1,0 +1,57 @@
+{
+  "$schema": "../../../../specs/schemas/portrait/portrait-part.schema.json",
+  "id": "relic.none",
+  "slot": "relic",
+  "box": {
+    "width": 23,
+    "height": 11
+  },
+  "anchors": {},
+  "glyphFamilies": [
+    "symbolic"
+  ],
+  "paletteRole": "symbolic",
+  "paletteHints": {
+    "primary": "portrait.symbolic",
+    "dim": "portrait.structure"
+  },
+  "frames": [
+    {
+      "id": "base",
+      "lines": [
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       "
+      ]
+    }
+  ],
+  "stateProfiles": {
+    "standby": {
+      "frameId": "base",
+      "animation": "none",
+      "mutationIntensity": "none"
+    }
+  },
+  "proceduralHooks": [],
+  "animationPersonality": "silent",
+  "mutationConstraints": {
+    "zone": "relic-slot",
+    "maxIntensity": "none",
+    "preserveSilhouette": true
+  },
+  "unlockRules": [
+    "default"
+  ],
+  "fallbackPartId": "relic.none",
+  "narrativeMeaning": [
+    "no active relic"
+  ]
+}

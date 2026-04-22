@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dreamer2-ref"
+version = "0.1.0"
+description = "Pure-text reference runtime for the Dreamer2 procedural shell."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+dreamer2-ref = "dreamer2_ref.cli:main"
+dreamer2-ref-preview = "dreamer2_ref.web:main"
+
+[tool.setuptools.package-data]
+dreamer2_ref = ["web_assets/*"]

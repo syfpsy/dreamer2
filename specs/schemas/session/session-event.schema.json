@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/session/session-event.schema.json",
+  "title": "Session Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "timestamp",
+    "type",
+    "actor",
+    "payload"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "type": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "string",
+      "enum": [
+        "user",
+        "shell",
+        "mind",
+        "memory",
+        "system",
+        "tool"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    }
+  }
+}

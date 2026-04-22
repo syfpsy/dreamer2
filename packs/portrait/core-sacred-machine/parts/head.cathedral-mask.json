@@ -1,0 +1,115 @@
+{
+  "$schema": "../../../../specs/schemas/portrait/portrait-part.schema.json",
+  "id": "head.cathedral-mask",
+  "slot": "head",
+  "box": {
+    "width": 23,
+    "height": 11
+  },
+  "anchors": {
+    "eyes": {
+      "x": 11,
+      "y": 2
+    },
+    "halo": {
+      "x": 11,
+      "y": 0
+    },
+    "core": {
+      "x": 11,
+      "y": 8
+    },
+    "shoulders": {
+      "x": 11,
+      "y": 9
+    }
+  },
+  "glyphFamilies": [
+    "structural"
+  ],
+  "paletteRole": "structural",
+  "paletteHints": {
+    "primary": "portrait.structure",
+    "dim": "portrait.structure"
+  },
+  "frames": [
+    {
+      "id": "base",
+      "lines": [
+        "        .-\"\"\"-.        ",
+        "      .'  _ _  '.      ",
+        "     /   /   \\   \\     ",
+        "    |   |  _  |   |    ",
+        "    |   | |_| |   |    ",
+        "    |   |     |   |    ",
+        "    |    \\___/    |    ",
+        "     \\           /     ",
+        "      '._     _.'      ",
+        "         '---'         ",
+        "                       "
+      ]
+    }
+  ],
+  "stateProfiles": {
+    "standby": {
+      "frameId": "base",
+      "animation": "breathe-low",
+      "mutationIntensity": "low"
+    },
+    "listening": {
+      "frameId": "base",
+      "animation": "attend-lean",
+      "mutationIntensity": "low"
+    },
+    "thinking": {
+      "frameId": "base",
+      "animation": "still-pressure",
+      "mutationIntensity": "none"
+    },
+    "building": {
+      "frameId": "base",
+      "animation": "still-pressure",
+      "mutationIntensity": "none"
+    },
+    "researching": {
+      "frameId": "base",
+      "animation": "attend-lean",
+      "mutationIntensity": "low"
+    },
+    "dreaming": {
+      "frameId": "base",
+      "animation": "soft-drift",
+      "mutationIntensity": "low",
+      "rareEventAnimation": "shape-waver"
+    },
+    "recovering": {
+      "frameId": "base",
+      "animation": "return-steady",
+      "mutationIntensity": "low"
+    },
+    "focused": {
+      "frameId": "base",
+      "animation": "locked-still",
+      "mutationIntensity": "none"
+    }
+  },
+  "proceduralHooks": [
+    "hook.contour.breathe",
+    "hook.edge.stability"
+  ],
+  "animationPersonality": "measured-breath",
+  "mutationConstraints": {
+    "zone": "outer-contour",
+    "maxIntensity": "low",
+    "preserveSilhouette": true
+  },
+  "unlockRules": [
+    "default"
+  ],
+  "fallbackPartId": "head.cathedral-mask",
+  "narrativeMeaning": [
+    "stable vessel",
+    "ritual face",
+    "iconic continuity"
+  ]
+}

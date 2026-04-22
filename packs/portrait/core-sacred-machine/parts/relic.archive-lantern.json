@@ -1,0 +1,80 @@
+{
+  "$schema": "../../../../specs/schemas/portrait/portrait-part.schema.json",
+  "id": "relic.archive-lantern",
+  "slot": "relic",
+  "box": {
+    "width": 23,
+    "height": 11
+  },
+  "anchors": {},
+  "glyphFamilies": [
+    "symbolic",
+    "soft-signal"
+  ],
+  "paletteRole": "symbolic",
+  "paletteHints": {
+    "primary": "portrait.symbolic",
+    "dim": "portrait.signal",
+    "accent": "portrait.symbolic"
+  },
+  "frames": [
+    {
+      "id": "base",
+      "lines": [
+        "                       ",
+        "                    o  ",
+        "                   /|  ",
+        "                  <+>  ",
+        "                   \\|  ",
+        "                    o  ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       "
+      ]
+    }
+  ],
+  "stateProfiles": {
+    "standby": {
+      "frameId": "base",
+      "animation": "orbit-quiet",
+      "mutationIntensity": "low"
+    },
+    "listening": {
+      "frameId": "base",
+      "animation": "orbit-attentive",
+      "mutationIntensity": "low"
+    },
+    "dreaming": {
+      "frameId": "base",
+      "animation": "glow-soft",
+      "mutationIntensity": "medium"
+    },
+    "focused": {
+      "frameId": "base",
+      "animation": "hold-near",
+      "mutationIntensity": "low"
+    }
+  },
+  "proceduralHooks": [
+    "hook.relic.orbit",
+    "hook.relic.glow"
+  ],
+  "animationPersonality": "lantern-orbit",
+  "mutationConstraints": {
+    "zone": "relic-slot",
+    "maxIntensity": "medium",
+    "preserveSilhouette": true
+  },
+  "unlockRules": [
+    "memory:bond",
+    "artifact:archive-lantern"
+  ],
+  "fallbackPartId": "relic.none",
+  "narrativeMeaning": [
+    "preserved bond",
+    "lit archive",
+    "visible vow"
+  ]
+}

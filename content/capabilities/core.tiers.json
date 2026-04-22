@@ -1,0 +1,28 @@
+{
+  "capabilityProfiles": [
+    {
+      "id": "pure-text",
+      "colorDepth": "ansi-basic",
+      "unicodeLevel": "conservative",
+      "graphicsSupport": "none",
+      "recommendedRedraw": "diff-regions",
+      "notes": "Baseline tier that must still feel premium."
+    },
+    {
+      "id": "rich-unicode",
+      "colorDepth": "256-or-truecolor",
+      "unicodeLevel": "rich",
+      "graphicsSupport": "none",
+      "recommendedRedraw": "diff-cells",
+      "notes": "Preferred day-one premium text experience."
+    },
+    {
+      "id": "hybrid-graphics",
+      "colorDepth": "truecolor",
+      "unicodeLevel": "rich",
+      "graphicsSupport": "available",
+      "recommendedRedraw": "diff-cells",
+      "notes": "Optional richer cinematic surface."
+    }
+  ]
+}

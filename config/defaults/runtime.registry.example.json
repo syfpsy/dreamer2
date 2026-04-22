@@ -1,0 +1,42 @@
+{
+  "themeId": "theme.sacred-machine.default",
+  "portraitPackIds": [
+    "portrait-pack.core.sacred-machine"
+  ],
+  "modulePackIds": [
+    "module-pack.core.rituals",
+    "module-pack.archive.ledger"
+  ],
+  "content": {
+    "commands": [
+      "content/commands/core.commands.json"
+    ],
+    "modes": [
+      "content/modes/core.modes.json"
+    ],
+    "artifacts": [
+      "content/artifacts/core.artifacts.json"
+    ],
+    "ambientBehaviors": [
+      "content/ambient/core.behaviors.json"
+    ],
+    "microMotion": [
+      "content/micromotion/core.behaviors.json"
+    ],
+    "distortionPresets": [
+      "content/distortion/core.presets.json"
+    ],
+    "capabilities": [
+      "content/capabilities/core.tiers.json"
+    ],
+    "evolution": [
+      "content/evolution/core.rules.json"
+    ],
+    "companions": [
+      "content/companions/core.entities.json"
+    ],
+    "panels": [
+      "content/panels/core.panels.json"
+    ]
+  }
+}

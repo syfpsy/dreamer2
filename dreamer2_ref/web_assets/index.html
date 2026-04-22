@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dreamer2 Web Preview</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell-preview">
+      <section class="chrome-bar">
+        <div class="chrome-title">
+          <span class="chrome-mark">dreamer2</span>
+          <span id="profileName" class="chrome-name">Aster</span>
+        </div>
+        <div class="chrome-controls">
+          <label class="control">
+            <span>tier</span>
+            <select id="tierSelect">
+              <option value="pure-text">pure-text</option>
+              <option value="rich-unicode">rich-unicode</option>
+              <option value="hybrid-graphics">hybrid-graphics</option>
+            </select>
+          </label>
+          <label class="control checkbox">
+            <input id="autoRefresh" type="checkbox" checked />
+            <span>ambient refresh</span>
+          </label>
+          <button id="refreshButton" type="button">refresh</button>
+        </div>
+      </section>
+
+      <section class="preview-layout">
+        <article class="screen-shell">
+          <header class="screen-header">
+            <div>
+              <div class="screen-kicker">capability-aware shell surface</div>
+              <h1 id="screenTitle">Sacred Machine Preview</h1>
+            </div>
+            <div class="screen-meta">
+              <span id="modeBadge" class="badge">standby</span>
+              <span id="surfaceBadge" class="badge subtle">memory</span>
+            </div>
+          </header>
+
+          <div class="screen-frame">
+            <div id="screenRows" class="screen-rows" aria-label="Procedural character grid"></div>
+          </div>
+
+          <form id="commandForm" class="command-bar">
+            <label class="command-label" for="commandInput">ritual input</label>
+            <input
+              id="commandInput"
+              name="command"
+              type="text"
+              autocomplete="off"
+              placeholder="send I prefer a calm premium shell with visible continuity."
+            />
+            <button type="submit">transmit</button>
+          </form>
+        </article>
+
+        <aside class="inspector">
+          <section class="inspector-panel">
+            <div class="panel-label">state</div>
+            <div id="stateSummary" class="panel-copy"></div>
+          </section>
+
+          <section class="inspector-panel">
+            <div class="panel-label">surface</div>
+            <div id="surfaceLines" class="panel-copy panel-copy-mono"></div>
+          </section>
+
+          <section class="inspector-panel">
+            <div class="panel-label">artifacts</div>
+            <div id="artifactList" class="panel-copy"></div>
+          </section>
+
+          <section class="inspector-panel">
+            <div class="panel-label">companions</div>
+            <div id="companionList" class="panel-copy"></div>
+          </section>
+
+          <section class="inspector-panel">
+            <div class="panel-label">transmissions</div>
+            <div id="logLines" class="panel-copy panel-copy-mono"></div>
+          </section>
+
+          <section class="inspector-panel">
+            <div class="panel-label">ritual hints</div>
+            <div id="commandHints" class="panel-copy panel-copy-mono"></div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

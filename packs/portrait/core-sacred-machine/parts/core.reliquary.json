@@ -1,0 +1,123 @@
+{
+  "$schema": "../../../../specs/schemas/portrait/portrait-part.schema.json",
+  "id": "core.reliquary",
+  "slot": "core",
+  "box": {
+    "width": 23,
+    "height": 11
+  },
+  "anchors": {},
+  "glyphFamilies": [
+    "dense-pressure",
+    "symbolic",
+    "soft-signal"
+  ],
+  "paletteRole": "signal",
+  "paletteHints": {
+    "primary": "portrait.signal",
+    "dim": "portrait.structure",
+    "accent": "portrait.symbolic"
+  },
+  "frames": [
+    {
+      "id": "base",
+      "lines": [
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "          /+\\          ",
+        "         |+++|         ",
+        "         |+O+|         ",
+        "         |+++|         ",
+        "          \\_/          ",
+        "                       "
+      ]
+    },
+    {
+      "id": "focused",
+      "lines": [
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "          /#\\          ",
+        "         |###|         ",
+        "         |#O#|         ",
+        "         |###|         ",
+        "          \\_/          ",
+        "                       "
+      ]
+    },
+    {
+      "id": "dream",
+      "lines": [
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "          /~\\          ",
+        "         |~~~|         ",
+        "         |~o~|         ",
+        "         |~~~|         ",
+        "          \\_/          ",
+        "                       "
+      ]
+    }
+  ],
+  "stateProfiles": {
+    "standby": {
+      "frameId": "base",
+      "animation": "pulse-slow",
+      "mutationIntensity": "low"
+    },
+    "thinking": {
+      "frameId": "focused",
+      "animation": "pressure-pulse",
+      "mutationIntensity": "medium"
+    },
+    "building": {
+      "frameId": "focused",
+      "animation": "forge-pulse",
+      "mutationIntensity": "medium"
+    },
+    "dreaming": {
+      "frameId": "dream",
+      "animation": "echo-pulse",
+      "mutationIntensity": "medium",
+      "rareEventAnimation": "dream-bloom"
+    },
+    "recovering": {
+      "frameId": "base",
+      "animation": "pulse-return",
+      "mutationIntensity": "low"
+    },
+    "focused": {
+      "frameId": "focused",
+      "animation": "tight-pulse",
+      "mutationIntensity": "low"
+    }
+  },
+  "proceduralHooks": [
+    "hook.core.density",
+    "hook.core.pulse"
+  ],
+  "animationPersonality": "furnace-heart",
+  "mutationConstraints": {
+    "zone": "core",
+    "maxIntensity": "medium",
+    "preserveSilhouette": true
+  },
+  "unlockRules": [
+    "default"
+  ],
+  "fallbackPartId": "core.reliquary",
+  "narrativeMeaning": [
+    "inner furnace",
+    "memory vessel",
+    "attention pressure"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/modes/mode-manifest.schema.json",
+  "title": "Mode Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "label",
+    "tone",
+    "portraitBehavior",
+    "ambientProfile",
+    "commandDomains",
+    "memoryPolicy"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "tone": {
+      "type": "string"
+    },
+    "portraitBehavior": {
+      "type": "string"
+    },
+    "ambientProfile": {
+      "type": "string"
+    },
+    "commandDomains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "memoryPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidateAggression",
+        "artifactVisibility"
+      ],
+      "properties": {
+        "candidateAggression": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "artifactVisibility": {
+          "type": "string",
+          "enum": [
+            "quiet",
+            "normal",
+            "elevated"
+          ]
+        }
+      }
+    }
+  }
+}

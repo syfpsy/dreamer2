@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/render/capability-profile.schema.json",
+  "title": "Capability Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "colorDepth",
+    "unicodeLevel",
+    "graphicsSupport",
+    "recommendedRedraw"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "enum": [
+        "pure-text",
+        "rich-unicode",
+        "hybrid-graphics"
+      ]
+    },
+    "colorDepth": {
+      "type": "string"
+    },
+    "unicodeLevel": {
+      "type": "string"
+    },
+    "graphicsSupport": {
+      "type": "string"
+    },
+    "recommendedRedraw": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

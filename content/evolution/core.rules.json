@@ -1,0 +1,67 @@
+{
+  "rules": [
+    {
+      "id": "evo.first-bond",
+      "triggerTags": [
+        "relationship.marked",
+        "preference.confirmed"
+      ],
+      "threshold": 1,
+      "effects": {
+        "unlockPartIds": [
+          "relic.archive-lantern"
+        ],
+        "createArtifactTypeIds": [
+          "artifact.relic.archive-lantern"
+        ],
+        "timelineMarker": "first-bond"
+      }
+    },
+    {
+      "id": "evo.recovered-strain",
+      "triggerTags": [
+        "recovery",
+        "error.overcome"
+      ],
+      "threshold": 1,
+      "effects": {
+        "unlockPartIds": [
+          "scar.stitched-echo"
+        ],
+        "createArtifactTypeIds": [
+          "artifact.scar.stitched-echo"
+        ],
+        "ambientProfileShift": "warm-quiet"
+      }
+    },
+    {
+      "id": "evo.builder-mark",
+      "triggerTags": [
+        "project.milestone",
+        "build.shipped"
+      ],
+      "threshold": 1,
+      "effects": {
+        "createArtifactTypeIds": [
+          "artifact.timeline.marker",
+          "artifact.gallery.card"
+        ],
+        "timelineMarker": "builder-mark"
+      }
+    },
+    {
+      "id": "evo.dream-shard",
+      "triggerTags": [
+        "dream.synthesis",
+        "memory.resurfaced"
+      ],
+      "threshold": 2,
+      "effects": {
+        "createArtifactTypeIds": [
+          "artifact.orbit.fragment"
+        ],
+        "ambientProfileShift": "ghost-trace"
+      }
+    }
+  ]
+}

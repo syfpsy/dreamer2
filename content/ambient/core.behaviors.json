@@ -1,0 +1,145 @@
+{
+  "ambientBehaviors": [
+    {
+      "id": "ambient.quiet-dust",
+      "simulationClass": "flow-field",
+      "regionTargets": [
+        "negative-space",
+        "portrait-edge"
+      ],
+      "glyphFamilies": [
+        "soft-signal"
+      ],
+      "density": 0.08,
+      "cadenceWindowMs": {
+        "min": 1200,
+        "max": 3200
+      },
+      "notes": "Sparse standby drift with long pauses."
+    },
+    {
+      "id": "ambient.relay-pulse",
+      "simulationClass": "anchored-pulse",
+      "regionTargets": [
+        "panel-seams",
+        "portrait-edge"
+      ],
+      "glyphFamilies": [
+        "soft-signal",
+        "symbolic"
+      ],
+      "density": 0.12,
+      "cadenceWindowMs": {
+        "min": 800,
+        "max": 1800
+      },
+      "notes": "Listening state relay points and soft attention pulses."
+    },
+    {
+      "id": "ambient.low-static",
+      "simulationClass": "directional-flow",
+      "regionTargets": [
+        "portrait-edge",
+        "mid-field"
+      ],
+      "glyphFamilies": [
+        "soft-signal",
+        "dense-pressure"
+      ],
+      "density": 0.16,
+      "cadenceWindowMs": {
+        "min": 500,
+        "max": 1400
+      },
+      "notes": "Thinking pressure with bounded directional energy."
+    },
+    {
+      "id": "ambient.ghost-trace",
+      "simulationClass": "residue-drift",
+      "regionTargets": [
+        "negative-space",
+        "halo-lane"
+      ],
+      "glyphFamilies": [
+        "soft-signal",
+        "decay"
+      ],
+      "density": 0.14,
+      "cadenceWindowMs": {
+        "min": 900,
+        "max": 2400
+      },
+      "notes": "Dream residue and memory afterimage behavior."
+    },
+    {
+      "id": "ambient.warm-quiet",
+      "simulationClass": "stitched-return",
+      "regionTargets": [
+        "portrait-edge",
+        "memory-surface"
+      ],
+      "glyphFamilies": [
+        "soft-signal",
+        "symbolic"
+      ],
+      "density": 0.1,
+      "cadenceWindowMs": {
+        "min": 1000,
+        "max": 2600
+      },
+      "notes": "Recovery mode with cautious reorganizing motion."
+    },
+    {
+      "id": "ambient.tool-lane",
+      "simulationClass": "vector-lane",
+      "regionTargets": [
+        "mid-field",
+        "panel-edge"
+      ],
+      "glyphFamilies": [
+        "soft-signal",
+        "dense-pressure"
+      ],
+      "density": 0.14,
+      "cadenceWindowMs": {
+        "min": 600,
+        "max": 1300
+      },
+      "notes": "Building mode with directional lanes that suggest constructive motion."
+    },
+    {
+      "id": "ambient.narrow-beacon",
+      "simulationClass": "beacon-scan",
+      "regionTargets": [
+        "portrait-edge",
+        "far-field"
+      ],
+      "glyphFamilies": [
+        "soft-signal",
+        "symbolic"
+      ],
+      "density": 0.09,
+      "cadenceWindowMs": {
+        "min": 700,
+        "max": 1900
+      },
+      "notes": "Research mode with restrained directional probes."
+    },
+    {
+      "id": "ambient.near-silent",
+      "simulationClass": "held-stillness",
+      "regionTargets": [
+        "negative-space"
+      ],
+      "glyphFamilies": [
+        "soft-signal"
+      ],
+      "density": 0.04,
+      "cadenceWindowMs": {
+        "min": 1600,
+        "max": 3800
+      },
+      "notes": "Focused mode with almost no field movement."
+    }
+  ]
+}

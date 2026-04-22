@@ -1,0 +1,48 @@
+{
+  "$schema": "../../../specs/schemas/packs/module-pack.schema.json",
+  "id": "module-pack.workshop.operations",
+  "version": "0.1.0",
+  "capabilities": [
+    "mode-influence",
+    "memory-artifacts",
+    "ambient-field"
+  ],
+  "commandIds": [],
+  "panelIds": [],
+  "artifactTypeIds": [
+    "artifact.timeline.marker",
+    "artifact.gallery.card",
+    "artifact.orbit.fragment"
+  ],
+  "companionIds": [
+    "entity.archive-shard"
+  ],
+  "ambientBehaviorIds": [
+    "ambient.tool-lane",
+    "ambient.narrow-beacon"
+  ],
+  "distortionPresetIds": [
+    "distortion.clear",
+    "distortion.breath"
+  ],
+  "borderBehaviorIds": [],
+  "artifactRendererIds": [
+    "artifact.timeline.marker",
+    "artifact.gallery.card",
+    "artifact.orbit.fragment"
+  ],
+  "overlayIds": [
+    "overlay.mode.building",
+    "overlay.mode.researching"
+  ],
+  "optionalModeIds": [
+    "building",
+    "researching"
+  ],
+  "behaviorHooks": [
+    "hook.memory.timeline-marker",
+    "hook.memory.gallery-snapshot",
+    "hook.ambient.work-lanes"
+  ],
+  "notes": "Makes builder and research states real while adding workshop-facing memory artifacts."
+}

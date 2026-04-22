@@ -1,0 +1,50 @@
+{
+  "$schema": "../../../specs/schemas/packs/portrait-pack.schema.json",
+  "id": "portrait-pack.core.sacred-machine",
+  "version": "0.1.0",
+  "creativeDirection": [
+    "sacred-machine",
+    "industrial-ghost",
+    "dream-organism-light"
+  ],
+  "defaultThemeId": "theme.sacred-machine.default",
+  "supportedSlots": [
+    "head",
+    "eyes",
+    "shoulders",
+    "core",
+    "halo",
+    "scar",
+    "relic"
+  ],
+  "defaults": {
+    "head": "head.cathedral-mask",
+    "eyes": "eyes.vigil-slit",
+    "shoulders": "shoulders.monolith",
+    "core": "core.reliquary",
+    "halo": "halo.quiet-ring",
+    "scar": "scar.none",
+    "relic": "relic.none"
+  },
+  "states": [
+    "standby",
+    "listening",
+    "thinking",
+    "building",
+    "researching",
+    "dreaming",
+    "recovering",
+    "focused"
+  ],
+  "partRefs": [
+    "parts/head.cathedral-mask.json",
+    "parts/eyes.vigil-slit.json",
+    "parts/shoulders.monolith.json",
+    "parts/core.reliquary.json",
+    "parts/halo.quiet-ring.json",
+    "parts/scar.none.json",
+    "parts/scar.stitched-echo.json",
+    "parts/relic.none.json",
+    "parts/relic.archive-lantern.json"
+  ]
+}

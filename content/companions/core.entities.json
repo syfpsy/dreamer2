@@ -1,0 +1,75 @@
+{
+  "entities": [
+    {
+      "id": "entity.signal-bird",
+      "kind": "satellite",
+      "behavior": "appears in calm modes as a sparse orbit marker near the portrait edge",
+      "bindToArtifactTypes": [],
+      "defaultVisibility": "low",
+      "motionProfile": "slow-arc",
+      "roleHints": [
+        "watcher",
+        "sentry"
+      ],
+      "glyphFamilies": [
+        "soft-signal",
+        "symbolic"
+      ],
+      "orbitStyle": "wide-calm",
+      "stateProfiles": {
+        "standby": "quiet-arc",
+        "listening": "near-shoulder-hover",
+        "focused": "hold-distance"
+      }
+    },
+    {
+      "id": "entity.archive-shard",
+      "kind": "artifact-companion",
+      "behavior": "appears when archival artifacts surface and drifts along a fixed orbit lane",
+      "bindToArtifactTypes": [
+        "artifact.relic.archive-lantern",
+        "artifact.gallery.card",
+        "artifact.orbit.fragment"
+      ],
+      "defaultVisibility": "contextual",
+      "motionProfile": "quiet-orbit",
+      "roleHints": [
+        "archivist",
+        "memory-guide"
+      ],
+      "glyphFamilies": [
+        "symbolic",
+        "soft-signal"
+      ],
+      "orbitStyle": "close-lantern",
+      "stateProfiles": {
+        "standby": "slow-orbit",
+        "dreaming": "echo-orbit",
+        "recovering": "stitched-hover"
+      }
+    },
+    {
+      "id": "entity.lantern-mote",
+      "kind": "artifact-companion",
+      "behavior": "small orbiting mote that appears after an important memory becomes symbolic",
+      "bindToArtifactTypes": [
+        "artifact.relic.archive-lantern"
+      ],
+      "defaultVisibility": "contextual",
+      "motionProfile": "tiny-orbit",
+      "roleHints": [
+        "memory-guide",
+        "dream-carrier"
+      ],
+      "glyphFamilies": [
+        "symbolic"
+      ],
+      "orbitStyle": "inner-ring",
+      "stateProfiles": {
+        "standby": "dim-orbit",
+        "dreaming": "float-soft",
+        "focused": "hold-lantern"
+      }
+    }
+  ]
+}

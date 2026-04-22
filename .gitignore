@@ -1,0 +1,27 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# IDE/agent personal context (do not publish)
+.codex/
+.factory/
+.vercel/
+
+# Logs and runtime state
+*.log
+state/
+tmp/
+dist/
+build/
+coverage/
+
+# Dependency directories
+node_modules/
+.venv/
+venv/
+__pycache__/

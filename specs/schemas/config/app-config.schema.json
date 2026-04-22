@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/config/app-config.schema.json",
+  "title": "App Config",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "appId",
+    "profileId",
+    "defaultThemeId",
+    "loadedPortraitPacks",
+    "loadedModulePacks",
+    "shell",
+    "mind",
+    "memory"
+  ],
+  "properties": {
+    "appId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profileId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "defaultThemeId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "loadedPortraitPacks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "loadedModulePacks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "shell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "surface",
+        "layout",
+        "capabilityStrategy",
+        "minimumTier",
+        "preferredTier",
+        "ambientField",
+        "transmissionDistortion",
+        "diffRedraw",
+        "frameCadenceMs"
+      ],
+      "properties": {
+        "surface": {
+          "type": "string",
+          "enum": [
+            "terminal",
+            "tui",
+            "web-terminal",
+            "headless"
+          ]
+        },
+        "layout": {
+          "type": "string"
+        },
+        "capabilityStrategy": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "fixed"
+          ]
+        },
+        "minimumTier": {
+          "type": "string",
+          "enum": [
+            "pure-text",
+            "rich-unicode",
+            "hybrid-graphics"
+          ]
+        },
+        "preferredTier": {
+          "type": "string",
+          "enum": [
+            "pure-text",
+            "rich-unicode",
+            "hybrid-graphics"
+          ]
+        },
+        "ambientField": {
+          "type": "boolean"
+        },
+        "transmissionDistortion": {
+          "type": "string",
+          "enum": [
+            "none",
+            "disciplined",
+            "expressive"
+          ]
+        },
+        "diffRedraw": {
+          "type": "boolean"
+        },
+        "frameCadenceMs": {
+          "type": "integer",
+          "minimum": 16
+        }
+      }
+    },
+    "mind": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "defaultModeId",
+        "modelProvider",
+        "toolBridge"
+      ],
+      "properties": {
+        "defaultModeId": {
+          "type": "string"
+        },
+        "modelProvider": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "adapterId",
+            "policy"
+          ],
+          "properties": {
+            "adapterId": {
+              "type": "string"
+            },
+            "policy": {
+              "type": "string",
+              "enum": [
+                "replaceable",
+                "fixed"
+              ]
+            }
+          }
+        },
+        "toolBridge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "adapterId",
+            "enabled"
+          ],
+          "properties": {
+            "adapterId": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "memory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "persistenceAdapter",
+        "retention"
+      ],
+      "properties": {
+        "persistenceAdapter": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "adapterId",
+            "strategy"
+          ],
+          "properties": {
+            "adapterId": {
+              "type": "string"
+            },
+            "strategy": {
+              "type": "string",
+              "enum": [
+                "replaceable",
+                "fixed"
+              ]
+            }
+          }
+        },
+        "retention": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sessionDays",
+            "dreamDraftDays"
+          ],
+          "properties": {
+            "sessionDays": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "dreamDraftDays": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      }
+    },
+    "observability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "noteLogPath": {
+          "type": "string"
+        },
+        "eventLogPath": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../specs/schemas/packs/theme.schema.json",
+  "id": "theme.sacred-machine.default",
+  "version": "0.1.0",
+  "colors": {
+    "signalPrimary": "#a7d7d1",
+    "structuralDim": "#5f6668",
+    "accentRare": "#c7a86b",
+    "background": "#0d1112"
+  },
+  "terminal": {
+    "cursorStyle": "block-soft",
+    "shadowNoise": 0.08
+  },
+  "semanticRoles": {
+    "portrait.structure": "structuralDim",
+    "portrait.signal": "signalPrimary",
+    "portrait.symbolic": "accentRare",
+    "portrait.decay": "structuralDim",
+    "ambient.idle": "signalPrimary",
+    "warning.rare": "accentRare"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/render/scene-model.schema.json",
+  "profileId": "first-light",
+  "modeId": "standby",
+  "capabilityTier": "pure-text",
+  "layers": [
+    "core-silhouette",
+    "ambient-field",
+    "state",
+    "event",
+    "text-ui"
+  ],
+  "randomnessStreams": {
+    "identity": "seed:ASTER-1147-GLASS",
+    "state": "mode:standby",
+    "region": "layout:portrait-left-log-right",
+    "time": "phase:0900"
+  },
+  "activeEvents": [],
+  "notes": "Baseline calm scene before any relic or dream event has surfaced."
+}

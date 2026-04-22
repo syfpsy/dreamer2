@@ -1,0 +1,297 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/render/render-state.schema.json",
+  "title": "Render State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profileId",
+    "timestamp",
+    "modeId",
+    "capabilityTier",
+    "seed",
+    "scene",
+    "portrait",
+    "ambientField",
+    "panels",
+    "transmission",
+    "redraw"
+  ],
+  "properties": {
+    "profileId": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "modeId": {
+      "type": "string"
+    },
+    "capabilityTier": {
+      "type": "string",
+      "enum": [
+        "pure-text",
+        "rich-unicode",
+        "hybrid-graphics"
+      ]
+    },
+    "seed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identity",
+        "portrait",
+        "ambient"
+      ],
+      "properties": {
+        "identity": {
+          "type": "string"
+        },
+        "portrait": {
+          "type": "integer"
+        },
+        "ambient": {
+          "type": "integer"
+        }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "grid",
+        "layers",
+        "motionBudget",
+        "glitchBudget"
+      ],
+      "properties": {
+        "grid": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "width",
+            "height"
+          ],
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "cellAspect": {
+              "type": "string"
+            }
+          }
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "motionBudget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "portraitCenter",
+            "portraitEdges",
+            "ambientField",
+            "ui"
+          ],
+          "properties": {
+            "portraitCenter": {
+              "type": "string"
+            },
+            "portraitEdges": {
+              "type": "string"
+            },
+            "ambientField": {
+              "type": "string"
+            },
+            "ui": {
+              "type": "string"
+            }
+          }
+        },
+        "glitchBudget": {
+          "type": "string",
+          "enum": [
+            "none",
+            "low",
+            "medium"
+          ]
+        },
+        "transition": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sourceModeId",
+            "targetModeId",
+            "style",
+            "progress"
+          ],
+          "properties": {
+            "sourceModeId": {
+              "type": "string"
+            },
+            "targetModeId": {
+              "type": "string"
+            },
+            "style": {
+              "type": "string"
+            },
+            "progress": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      }
+    },
+    "portrait": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "activeParts",
+        "layers",
+        "mutations",
+        "artifactBindings",
+        "companionBindings",
+        "stabilityProfile"
+      ],
+      "properties": {
+        "activeParts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mutations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "artifactBindings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "companionBindings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "stabilityProfile": {
+          "type": "string"
+        },
+        "mutationBudget": {
+          "type": "string"
+        }
+      }
+    },
+    "ambientField": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "density",
+        "cadenceMs",
+        "activeEntities",
+        "behaviorIds"
+      ],
+      "properties": {
+        "profile": {
+          "type": "string"
+        },
+        "density": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "cadenceMs": {
+          "type": "integer",
+          "minimum": 16
+        },
+        "activeEntities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "behaviorIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "panels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transmission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "distortionProfile",
+        "pendingLineStyle",
+        "readabilityFloor"
+      ],
+      "properties": {
+        "distortionProfile": {
+          "type": "string"
+        },
+        "pendingLineStyle": {
+          "type": "string"
+        },
+        "activePresetId": {
+          "type": "string"
+        },
+        "readabilityFloor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "redraw": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strategy",
+        "maxChangedRegions"
+      ],
+      "properties": {
+        "strategy": {
+          "type": "string",
+          "enum": [
+            "full-frame",
+            "diff-cells",
+            "diff-regions"
+          ]
+        },
+        "maxChangedRegions": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

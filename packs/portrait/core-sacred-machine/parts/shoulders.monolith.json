@@ -1,0 +1,86 @@
+{
+  "$schema": "../../../../specs/schemas/portrait/portrait-part.schema.json",
+  "id": "shoulders.monolith",
+  "slot": "shoulders",
+  "box": {
+    "width": 23,
+    "height": 11
+  },
+  "anchors": {},
+  "glyphFamilies": [
+    "structural"
+  ],
+  "paletteRole": "structural",
+  "paletteHints": {
+    "primary": "portrait.structure",
+    "dim": "portrait.structure"
+  },
+  "frames": [
+    {
+      "id": "base",
+      "lines": [
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "     ___/|   |\\___     ",
+        "   _/    |   |    \\_   ",
+        "  /______|___|______\\  ",
+        "                       "
+      ]
+    }
+  ],
+  "stateProfiles": {
+    "standby": {
+      "frameId": "base",
+      "animation": "none",
+      "mutationIntensity": "none"
+    },
+    "listening": {
+      "frameId": "base",
+      "animation": "breathe-low",
+      "mutationIntensity": "low"
+    },
+    "building": {
+      "frameId": "base",
+      "animation": "weight-return",
+      "mutationIntensity": "low"
+    },
+    "researching": {
+      "frameId": "base",
+      "animation": "breathe-low",
+      "mutationIntensity": "low"
+    },
+    "recovering": {
+      "frameId": "base",
+      "animation": "weight-return",
+      "mutationIntensity": "low"
+    },
+    "focused": {
+      "frameId": "base",
+      "animation": "none",
+      "mutationIntensity": "none"
+    }
+  },
+  "proceduralHooks": [
+    "hook.mass.weight"
+  ],
+  "animationPersonality": "grounded-still",
+  "mutationConstraints": {
+    "zone": "lower-frame",
+    "maxIntensity": "low",
+    "preserveSilhouette": true
+  },
+  "unlockRules": [
+    "default"
+  ],
+  "fallbackPartId": "shoulders.monolith",
+  "narrativeMeaning": [
+    "mass",
+    "stability",
+    "protective frame"
+  ]
+}

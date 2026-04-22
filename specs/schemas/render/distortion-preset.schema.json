@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/render/distortion-preset.schema.json",
+  "title": "Distortion Preset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "triggerKinds",
+    "readabilityFloor",
+    "maxDurationMs",
+    "glyphFamilies",
+    "glitchBudgetCost"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "triggerKinds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "readabilityFloor": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "maxDurationMs": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "glyphFamilies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "glitchBudgetCost": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "tierOverrides": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/render/scene-model.schema.json",
+  "title": "Scene Model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profileId",
+    "modeId",
+    "capabilityTier",
+    "layers",
+    "randomnessStreams",
+    "activeEvents"
+  ],
+  "properties": {
+    "profileId": {
+      "type": "string"
+    },
+    "modeId": {
+      "type": "string"
+    },
+    "capabilityTier": {
+      "type": "string",
+      "enum": [
+        "pure-text",
+        "rich-unicode",
+        "hybrid-graphics"
+      ]
+    },
+    "layers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "randomnessStreams": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identity",
+        "state",
+        "region",
+        "time"
+      ],
+      "properties": {
+        "identity": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        }
+      }
+    },
+    "activeEvents": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceModeId",
+        "targetModeId",
+        "style",
+        "progress"
+      ],
+      "properties": {
+        "sourceModeId": {
+          "type": "string"
+        },
+        "targetModeId": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

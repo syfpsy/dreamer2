@@ -1,0 +1,147 @@
+{
+  "modes": [
+    {
+      "id": "standby",
+      "label": "Standby",
+      "tone": "calm and receptive",
+      "portraitBehavior": "breathe-low",
+      "ambientProfile": "ambient.quiet-dust",
+      "commandDomains": [
+        "transmission",
+        "ritual",
+        "identity",
+        "ledger",
+        "configuration",
+        "archive",
+        "state"
+      ],
+      "memoryPolicy": {
+        "candidateAggression": "low",
+        "artifactVisibility": "normal"
+      }
+    },
+    {
+      "id": "listening",
+      "label": "Listening",
+      "tone": "attentive and intimate",
+      "portraitBehavior": "attend-lean",
+      "ambientProfile": "ambient.relay-pulse",
+      "commandDomains": [
+        "transmission",
+        "ritual",
+        "identity",
+        "ledger",
+        "state"
+      ],
+      "memoryPolicy": {
+        "candidateAggression": "medium",
+        "artifactVisibility": "normal"
+      }
+    },
+    {
+      "id": "thinking",
+      "label": "Thinking",
+      "tone": "dense and inward",
+      "portraitBehavior": "pressure-pulse",
+      "ambientProfile": "ambient.low-static",
+      "commandDomains": [
+        "transmission",
+        "ritual",
+        "state"
+      ],
+      "memoryPolicy": {
+        "candidateAggression": "low",
+        "artifactVisibility": "quiet"
+      }
+    },
+    {
+      "id": "building",
+      "label": "Building",
+      "tone": "deliberate and crafted",
+      "portraitBehavior": "forge-pulse",
+      "ambientProfile": "ambient.tool-lane",
+      "commandDomains": [
+        "transmission",
+        "ritual",
+        "state"
+      ],
+      "memoryPolicy": {
+        "candidateAggression": "medium",
+        "artifactVisibility": "quiet"
+      }
+    },
+    {
+      "id": "researching",
+      "label": "Researching",
+      "tone": "curious and exact",
+      "portraitBehavior": "scan-sweep",
+      "ambientProfile": "ambient.narrow-beacon",
+      "commandDomains": [
+        "transmission",
+        "ritual",
+        "ledger",
+        "state"
+      ],
+      "memoryPolicy": {
+        "candidateAggression": "medium",
+        "artifactVisibility": "quiet"
+      }
+    },
+    {
+      "id": "dreaming",
+      "label": "Dreaming",
+      "tone": "reflective and softened",
+      "portraitBehavior": "blur-drift",
+      "ambientProfile": "ambient.ghost-trace",
+      "commandDomains": [
+        "transmission",
+        "ritual",
+        "reflection",
+        "archive",
+        "state"
+      ],
+      "memoryPolicy": {
+        "candidateAggression": "high",
+        "artifactVisibility": "elevated"
+      }
+    },
+    {
+      "id": "recovering",
+      "label": "Recovering",
+      "tone": "careful and stabilizing",
+      "portraitBehavior": "return-steady",
+      "ambientProfile": "ambient.warm-quiet",
+      "commandDomains": [
+        "ritual",
+        "identity",
+        "ledger",
+        "archive",
+        "state"
+      ],
+      "memoryPolicy": {
+        "candidateAggression": "medium",
+        "artifactVisibility": "normal"
+      }
+    },
+    {
+      "id": "focused",
+      "label": "Focused",
+      "tone": "sharp and faithful",
+      "portraitBehavior": "lock-steady",
+      "ambientProfile": "ambient.near-silent",
+      "commandDomains": [
+        "transmission",
+        "ritual",
+        "identity",
+        "ledger",
+        "configuration",
+        "archive",
+        "state"
+      ],
+      "memoryPolicy": {
+        "candidateAggression": "low",
+        "artifactVisibility": "quiet"
+      }
+    }
+  ]
+}

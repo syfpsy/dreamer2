@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/memory/artifact.schema.json",
+  "id": "artifact_instance_0001",
+  "type": "artifact.relic.archive-lantern",
+  "title": "Archive Lantern",
+  "sourceMemoryIds": [
+    "mem_0001"
+  ],
+  "visualBinding": {
+    "target": "relic",
+    "partId": "relic.archive-lantern"
+  },
+  "displayRules": {
+    "visibility": "contextual",
+    "modes": [
+      "standby",
+      "listening",
+      "dreaming",
+      "focused"
+    ]
+  },
+  "stateEffects": [
+    "portrait:unlock-relic",
+    "ambient:quiet-orbit",
+    "gallery:add-card",
+    "companion:unlock-lantern-mote"
+  ]
+}

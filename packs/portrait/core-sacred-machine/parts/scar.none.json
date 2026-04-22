@@ -1,0 +1,57 @@
+{
+  "$schema": "../../../../specs/schemas/portrait/portrait-part.schema.json",
+  "id": "scar.none",
+  "slot": "scar",
+  "box": {
+    "width": 23,
+    "height": 11
+  },
+  "anchors": {},
+  "glyphFamilies": [
+    "decay"
+  ],
+  "paletteRole": "decay",
+  "paletteHints": {
+    "primary": "portrait.decay",
+    "dim": "portrait.structure"
+  },
+  "frames": [
+    {
+      "id": "base",
+      "lines": [
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       "
+      ]
+    }
+  ],
+  "stateProfiles": {
+    "standby": {
+      "frameId": "base",
+      "animation": "none",
+      "mutationIntensity": "none"
+    }
+  },
+  "proceduralHooks": [],
+  "animationPersonality": "silent",
+  "mutationConstraints": {
+    "zone": "scar-slot",
+    "maxIntensity": "none",
+    "preserveSilhouette": true
+  },
+  "unlockRules": [
+    "default"
+  ],
+  "fallbackPartId": "scar.none",
+  "narrativeMeaning": [
+    "no visible scar"
+  ]
+}

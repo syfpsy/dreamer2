@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/memory/evolution-rule.schema.json",
+  "title": "Evolution Rule",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "triggerTags",
+    "threshold",
+    "effects"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "triggerTags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "threshold": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "unlockPartIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "createArtifactTypeIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ambientProfileShift": {
+          "type": "string"
+        },
+        "timelineMarker": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/memory/artifact.schema.json",
+  "title": "Artifact Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "title",
+    "sourceMemoryIds",
+    "visualBinding",
+    "displayRules",
+    "stateEffects"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "sourceMemoryIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "visualBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target",
+        "partId"
+      ],
+      "properties": {
+        "target": {
+          "type": "string"
+        },
+        "partId": {
+          "type": "string"
+        }
+      }
+    },
+    "displayRules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "visibility",
+        "modes"
+      ],
+      "properties": {
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "always",
+            "contextual",
+            "gallery-only"
+          ]
+        },
+        "modes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "stateEffects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

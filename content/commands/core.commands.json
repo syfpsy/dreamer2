@@ -1,0 +1,305 @@
+{
+  "commands": [
+    {
+      "id": "cmd.send",
+      "domain": "transmission",
+      "verb": "send",
+      "summary": "Primary channel for conversation, requests, and task execution.",
+      "handlerRef": "mind.router.send",
+      "availability": [
+        "standby",
+        "listening",
+        "thinking",
+        "building",
+        "researching",
+        "dreaming",
+        "recovering",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "append transmission log",
+          "show pending state"
+        ],
+        "mind": [
+          "route prompt or command payload",
+          "invoke tools if policy allows"
+        ],
+        "memory": [
+          "store session event",
+          "extract candidates"
+        ]
+      }
+    },
+    {
+      "id": "cmd.help",
+      "domain": "ritual",
+      "verb": "help",
+      "summary": "Show loaded commands, syntax, and current mode affordances.",
+      "handlerRef": "mind.router.help",
+      "availability": [
+        "standby",
+        "listening",
+        "thinking",
+        "building",
+        "researching",
+        "dreaming",
+        "recovering",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "focus command hint panel"
+        ],
+        "mind": [
+          "resolve command registry"
+        ],
+        "memory": [
+          "none"
+        ]
+      }
+    },
+    {
+      "id": "cmd.soul",
+      "domain": "identity",
+      "verb": "soul",
+      "summary": "Inspect identity seed, portrait state, scars, relics, and current symbolic state.",
+      "handlerRef": "mind.router.soul",
+      "availability": [
+        "standby",
+        "listening",
+        "recovering",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "surface portrait diagnostics"
+        ],
+        "mind": [
+          "query profile and mode"
+        ],
+        "memory": [
+          "query cosmetic_state records"
+        ]
+      }
+    },
+    {
+      "id": "cmd.memory",
+      "domain": "ledger",
+      "verb": "memory",
+      "summary": "Inspect recent, durable, or symbolic memory records.",
+      "handlerRef": "mind.router.memory",
+      "availability": [
+        "standby",
+        "listening",
+        "recovering",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "open memory surface"
+        ],
+        "mind": [
+          "query memory manager"
+        ],
+        "memory": [
+          "read durable ledger"
+        ]
+      }
+    },
+    {
+      "id": "cmd.dream",
+      "domain": "reflection",
+      "verb": "dream",
+      "summary": "Run a controlled reflection or resurfacing pass with explicit guardrails.",
+      "handlerRef": "mind.router.dream",
+      "availability": [
+        "standby",
+        "listening",
+        "dreaming",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "switch distortion profile to dream if approved"
+        ],
+        "mind": [
+          "run reflection policy"
+        ],
+        "memory": [
+          "store dream output as candidate or draft only"
+        ]
+      }
+    },
+    {
+      "id": "cmd.essence",
+      "domain": "configuration",
+      "verb": "essence",
+      "summary": "Inspect or change themes, ambient intensity, and configurable traits.",
+      "handlerRef": "mind.router.essence",
+      "availability": [
+        "standby",
+        "listening",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "refresh theme or panel settings"
+        ],
+        "mind": [
+          "validate change intent"
+        ],
+        "memory": [
+          "update cosmetic_state if confirmed"
+        ]
+      }
+    },
+    {
+      "id": "cmd.gallery",
+      "domain": "archive",
+      "verb": "gallery",
+      "summary": "Browse visible evolution history, milestones, and symbolic artifacts.",
+      "handlerRef": "mind.router.gallery",
+      "availability": [
+        "standby",
+        "listening",
+        "dreaming",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "open artifact shelf or gallery"
+        ],
+        "mind": [
+          "query artifact manager"
+        ],
+        "memory": [
+          "read artifact records"
+        ]
+      }
+    },
+    {
+      "id": "cmd.forget",
+      "domain": "archive",
+      "verb": "forget",
+      "summary": "Correct, retire, or prune durable memory with policy-aware confirmation.",
+      "handlerRef": "mind.router.forget",
+      "availability": [
+        "standby",
+        "listening",
+        "recovering",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "show confirmation state"
+        ],
+        "mind": [
+          "validate forget policy"
+        ],
+        "memory": [
+          "revise or prune records"
+        ]
+      }
+    },
+    {
+      "id": "cmd.tweak",
+      "domain": "configuration",
+      "verb": "tweak",
+      "summary": "Toggle cosmetic options, module visibility, or shell presentation preferences.",
+      "handlerRef": "mind.router.tweak",
+      "availability": [
+        "standby",
+        "listening",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "update panel and cosmetic settings"
+        ],
+        "mind": [
+          "validate module or shell settings"
+        ],
+        "memory": [
+          "persist cosmetic_state changes"
+        ]
+      }
+    },
+    {
+      "id": "cmd.mode",
+      "domain": "state",
+      "verb": "mode",
+      "summary": "Request an explicit mode transition.",
+      "handlerRef": "mind.router.mode",
+      "availability": [
+        "standby",
+        "listening",
+        "thinking",
+        "building",
+        "researching",
+        "dreaming",
+        "recovering",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "refresh overlays and panel language"
+        ],
+        "mind": [
+          "update mode manager"
+        ],
+        "memory": [
+          "record mode transition event"
+        ]
+      }
+    },
+    {
+      "id": "cmd.inspect",
+      "domain": "ledger",
+      "verb": "inspect",
+      "summary": "Inspect a durable memory's full body, tags, source, and linked artifacts.",
+      "handlerRef": "mind.router.inspect",
+      "availability": [
+        "standby",
+        "listening",
+        "recovering",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "lift memory surface with full detail"
+        ],
+        "mind": [
+          "resolve memory reference"
+        ],
+        "memory": [
+          "read durable ledger record and artifact bindings"
+        ]
+      }
+    },
+    {
+      "id": "cmd.revise",
+      "domain": "ledger",
+      "verb": "revise",
+      "summary": "Rewrite a durable memory while preserving continuity and artifact bindings.",
+      "handlerRef": "mind.router.revise",
+      "availability": [
+        "standby",
+        "listening",
+        "recovering",
+        "focused"
+      ],
+      "effects": {
+        "shell": [
+          "surface revised memory and show resurfacing distortion"
+        ],
+        "mind": [
+          "validate revise policy"
+        ],
+        "memory": [
+          "update durable record and reconcile downstream artifacts"
+        ]
+      }
+    }
+  ]
+}

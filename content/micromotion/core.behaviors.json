@@ -1,0 +1,416 @@
+{
+  "microMotion": [
+    {
+      "id": "breathe-low",
+      "target": "portrait.contour",
+      "driver": "phase-breath",
+      "cadenceWindowMs": {
+        "min": 1800,
+        "max": 3200
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "structural",
+        "soft-signal"
+      ],
+      "capabilityFallback": "density-shift-only"
+    },
+    {
+      "id": "attend-lean",
+      "target": "portrait.head",
+      "driver": "micro-offset",
+      "cadenceWindowMs": {
+        "min": 900,
+        "max": 1600
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "structural"
+      ],
+      "capabilityFallback": "eye-emphasis-only"
+    },
+    {
+      "id": "still-pressure",
+      "target": "portrait.head",
+      "driver": "held-tension",
+      "cadenceWindowMs": {
+        "min": 1000,
+        "max": 2400
+      },
+      "intensity": "none",
+      "glyphFamilies": [
+        "structural"
+      ],
+      "capabilityFallback": "none"
+    },
+    {
+      "id": "soft-drift",
+      "target": "portrait.head",
+      "driver": "dream-drift",
+      "cadenceWindowMs": {
+        "min": 1200,
+        "max": 2600
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "structural",
+        "soft-signal"
+      ],
+      "capabilityFallback": "density-shift-only"
+    },
+    {
+      "id": "return-steady",
+      "target": "portrait.head",
+      "driver": "stabilize",
+      "cadenceWindowMs": {
+        "min": 900,
+        "max": 1800
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "structural"
+      ],
+      "capabilityFallback": "single-step-return"
+    },
+    {
+      "id": "locked-still",
+      "target": "portrait.head",
+      "driver": "hold",
+      "cadenceWindowMs": {
+        "min": 1800,
+        "max": 3600
+      },
+      "intensity": "none",
+      "glyphFamilies": [
+        "structural"
+      ],
+      "capabilityFallback": "none"
+    },
+    {
+      "id": "eye-flicker-rare",
+      "target": "portrait.eyes",
+      "driver": "aperture-jitter",
+      "cadenceWindowMs": {
+        "min": 2500,
+        "max": 7000
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "soft-signal",
+        "dense-pressure"
+      ],
+      "capabilityFallback": "single-frame-substitution"
+    },
+    {
+      "id": "open-soft",
+      "target": "portrait.eyes",
+      "driver": "aperture-open",
+      "cadenceWindowMs": {
+        "min": 900,
+        "max": 1700
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "soft-signal"
+      ],
+      "capabilityFallback": "soft-brightening"
+    },
+    {
+      "id": "scan-tight",
+      "target": "portrait.eyes",
+      "driver": "scan-sweep",
+      "cadenceWindowMs": {
+        "min": 700,
+        "max": 1300
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "dense-pressure"
+      ],
+      "capabilityFallback": "brightness-pulse"
+    },
+    {
+      "id": "scan-sweep",
+      "target": "portrait.eyes",
+      "driver": "broad-scan",
+      "cadenceWindowMs": {
+        "min": 850,
+        "max": 1500
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "dense-pressure",
+        "soft-signal"
+      ],
+      "capabilityFallback": "two-phase-scan"
+    },
+    {
+      "id": "pressure-pulse",
+      "target": "portrait.core",
+      "driver": "density-pulse",
+      "cadenceWindowMs": {
+        "min": 650,
+        "max": 1200
+      },
+      "intensity": "medium",
+      "glyphFamilies": [
+        "dense-pressure",
+        "symbolic"
+      ],
+      "capabilityFallback": "core-accent-pulse"
+    },
+    {
+      "id": "forge-pulse",
+      "target": "portrait.core",
+      "driver": "constructive-pulse",
+      "cadenceWindowMs": {
+        "min": 600,
+        "max": 1100
+      },
+      "intensity": "medium",
+      "glyphFamilies": [
+        "dense-pressure",
+        "symbolic"
+      ],
+      "capabilityFallback": "accent-pulse"
+    },
+    {
+      "id": "echo-pulse",
+      "target": "portrait.core",
+      "driver": "dream-echo",
+      "cadenceWindowMs": {
+        "min": 900,
+        "max": 1700
+      },
+      "intensity": "medium",
+      "glyphFamilies": [
+        "soft-signal",
+        "decay",
+        "symbolic"
+      ],
+      "capabilityFallback": "soft-core-bloom"
+    },
+    {
+      "id": "pulse-slow",
+      "target": "portrait.core",
+      "driver": "slow-pulse",
+      "cadenceWindowMs": {
+        "min": 1400,
+        "max": 2400
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "soft-signal",
+        "symbolic"
+      ],
+      "capabilityFallback": "accent-pulse"
+    },
+    {
+      "id": "pulse-return",
+      "target": "portrait.core",
+      "driver": "stabilize-pulse",
+      "cadenceWindowMs": {
+        "min": 800,
+        "max": 1500
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "soft-signal",
+        "symbolic"
+      ],
+      "capabilityFallback": "accent-pulse"
+    },
+    {
+      "id": "tight-pulse",
+      "target": "portrait.core",
+      "driver": "focused-pulse",
+      "cadenceWindowMs": {
+        "min": 650,
+        "max": 950
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "dense-pressure",
+        "symbolic"
+      ],
+      "capabilityFallback": "tight-accent-pulse"
+    },
+    {
+      "id": "hover-quiet",
+      "target": "portrait.halo",
+      "driver": "hover",
+      "cadenceWindowMs": {
+        "min": 1300,
+        "max": 2500
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "symbolic",
+        "soft-signal"
+      ],
+      "capabilityFallback": "single-step-hover"
+    },
+    {
+      "id": "hover-attentive",
+      "target": "portrait.halo",
+      "driver": "hover-attend",
+      "cadenceWindowMs": {
+        "min": 900,
+        "max": 1700
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "symbolic",
+        "soft-signal"
+      ],
+      "capabilityFallback": "accent-hover"
+    },
+    {
+      "id": "blur-quiet",
+      "target": "portrait.halo",
+      "driver": "dream-blur",
+      "cadenceWindowMs": {
+        "min": 1000,
+        "max": 2000
+      },
+      "intensity": "medium",
+      "glyphFamilies": [
+        "soft-signal",
+        "decay",
+        "symbolic"
+      ],
+      "capabilityFallback": "soft-fade"
+    },
+    {
+      "id": "hold-bright",
+      "target": "portrait.halo",
+      "driver": "held-brightness",
+      "cadenceWindowMs": {
+        "min": 1400,
+        "max": 2600
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "symbolic"
+      ],
+      "capabilityFallback": "accent-hold"
+    },
+    {
+      "id": "weight-return",
+      "target": "portrait.shoulders",
+      "driver": "mass-reset",
+      "cadenceWindowMs": {
+        "min": 1000,
+        "max": 1900
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "structural"
+      ],
+      "capabilityFallback": "single-step-return"
+    },
+    {
+      "id": "orbit-quiet",
+      "target": "portrait.relic",
+      "driver": "flow-orbit",
+      "cadenceWindowMs": {
+        "min": 1200,
+        "max": 2400
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "symbolic",
+        "soft-signal"
+      ],
+      "capabilityFallback": "two-position-orbit"
+    },
+    {
+      "id": "orbit-attentive",
+      "target": "portrait.relic",
+      "driver": "near-orbit",
+      "cadenceWindowMs": {
+        "min": 900,
+        "max": 1600
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "symbolic",
+        "soft-signal"
+      ],
+      "capabilityFallback": "two-position-orbit"
+    },
+    {
+      "id": "glow-soft",
+      "target": "portrait.relic",
+      "driver": "soft-glow",
+      "cadenceWindowMs": {
+        "min": 1000,
+        "max": 2100
+      },
+      "intensity": "medium",
+      "glyphFamilies": [
+        "symbolic",
+        "soft-signal"
+      ],
+      "capabilityFallback": "accent-pulse"
+    },
+    {
+      "id": "hold-near",
+      "target": "portrait.relic",
+      "driver": "close-orbit",
+      "cadenceWindowMs": {
+        "min": 1200,
+        "max": 2400
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "symbolic"
+      ],
+      "capabilityFallback": "fixed-near-position"
+    },
+    {
+      "id": "scar-warmth",
+      "target": "portrait.scar",
+      "driver": "heat-fade",
+      "cadenceWindowMs": {
+        "min": 1100,
+        "max": 2300
+      },
+      "intensity": "low",
+      "glyphFamilies": [
+        "decay",
+        "symbolic"
+      ],
+      "capabilityFallback": "accent-fade"
+    },
+    {
+      "id": "blur-drift",
+      "target": "portrait.eyes",
+      "driver": "dream-soften",
+      "cadenceWindowMs": {
+        "min": 900,
+        "max": 2100
+      },
+      "intensity": "medium",
+      "glyphFamilies": [
+        "soft-signal",
+        "decay"
+      ],
+      "capabilityFallback": "soft-signal-substitution"
+    },
+    {
+      "id": "lock-steady",
+      "target": "portrait.eyes",
+      "driver": "hold-line",
+      "cadenceWindowMs": {
+        "min": 1200,
+        "max": 2200
+      },
+      "intensity": "none",
+      "glyphFamilies": [
+        "dense-pressure"
+      ],
+      "capabilityFallback": "none"
+    }
+  ]
+}

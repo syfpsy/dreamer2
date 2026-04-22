@@ -1,0 +1,68 @@
+{
+  "$schema": "../../../../specs/schemas/portrait/portrait-part.schema.json",
+  "id": "scar.stitched-echo",
+  "slot": "scar",
+  "box": {
+    "width": 23,
+    "height": 11
+  },
+  "anchors": {},
+  "glyphFamilies": [
+    "decay",
+    "symbolic"
+  ],
+  "paletteRole": "decay",
+  "paletteHints": {
+    "primary": "portrait.decay",
+    "dim": "portrait.structure",
+    "accent": "portrait.symbolic"
+  },
+  "frames": [
+    {
+      "id": "base",
+      "lines": [
+        "                       ",
+        "                       ",
+        "                       ",
+        "              x-x      ",
+        "               |       ",
+        "              x-x      ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       "
+      ]
+    }
+  ],
+  "stateProfiles": {
+    "standby": {
+      "frameId": "base",
+      "animation": "none",
+      "mutationIntensity": "none"
+    },
+    "recovering": {
+      "frameId": "base",
+      "animation": "scar-warmth",
+      "mutationIntensity": "low"
+    }
+  },
+  "proceduralHooks": [
+    "hook.scar.activate"
+  ],
+  "animationPersonality": "stitched-warmth",
+  "mutationConstraints": {
+    "zone": "scar-slot",
+    "maxIntensity": "low",
+    "preserveSilhouette": true
+  },
+  "unlockRules": [
+    "memory:recovery",
+    "artifact:stitched-echo"
+  ],
+  "fallbackPartId": "scar.none",
+  "narrativeMeaning": [
+    "recovered strain",
+    "repair remembered"
+  ]
+}

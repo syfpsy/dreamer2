@@ -1,0 +1,17 @@
+{
+  "$schema": "../../schemas/memory/memory-record.schema.json",
+  "id": "mem_0001",
+  "category": "long_term_personal",
+  "sourceSessionId": "session_2026_04_22_01",
+  "summary": "User prefers a calm premium shell with restrained motion and visible continuity.",
+  "body": "Promoted from early setup conversation because it defines durable product preference and visual doctrine.",
+  "tags": [
+    "preference",
+    "continuity",
+    "aesthetic.core"
+  ],
+  "salience": 0.94,
+  "retention": "durable",
+  "disposition": "active",
+  "visibility": "symbolic"
+}

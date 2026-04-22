@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/config/profile.schema.json",
+  "title": "Companion Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profileId",
+    "displayName",
+    "archetype",
+    "seed",
+    "temperament",
+    "symbolicState",
+    "memoryPolicy"
+  ],
+  "properties": {
+    "profileId": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "archetype": {
+      "type": "string"
+    },
+    "seed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identity",
+        "portrait",
+        "ambient"
+      ],
+      "properties": {
+        "identity": {
+          "type": "string"
+        },
+        "portrait": {
+          "type": "integer"
+        },
+        "ambient": {
+          "type": "integer"
+        }
+      }
+    },
+    "temperament": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "calm",
+        "devotion",
+        "haunt",
+        "wonder"
+      ],
+      "properties": {
+        "calm": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "devotion": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "haunt": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "wonder": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "symbolicState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scars",
+        "relicSlots",
+        "unlockedSigils"
+      ],
+      "properties": {
+        "scars": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relicSlots": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unlockedSigils": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "memoryPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requireConfirmationForForget",
+        "autoPromoteTags"
+      ],
+      "properties": {
+        "requireConfirmationForForget": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "autoPromoteTags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

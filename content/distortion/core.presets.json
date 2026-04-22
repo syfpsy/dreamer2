@@ -1,0 +1,68 @@
+{
+  "distortionPresets": [
+    {
+      "id": "distortion.clear",
+      "triggerKinds": [
+        "default"
+      ],
+      "readabilityFloor": 1,
+      "maxDurationMs": 0,
+      "glyphFamilies": [
+        "structural"
+      ],
+      "glitchBudgetCost": "low",
+      "tierOverrides": {}
+    },
+    {
+      "id": "distortion.breath",
+      "triggerKinds": [
+        "wake",
+        "arrival"
+      ],
+      "readabilityFloor": 0.98,
+      "maxDurationMs": 380,
+      "glyphFamilies": [
+        "soft-signal"
+      ],
+      "glitchBudgetCost": "low",
+      "tierOverrides": {
+        "pure-text": "timing-only"
+      }
+    },
+    {
+      "id": "distortion.relic-phase",
+      "triggerKinds": [
+        "memory-resurfacing",
+        "artifact-reveal"
+      ],
+      "readabilityFloor": 0.94,
+      "maxDurationMs": 700,
+      "glyphFamilies": [
+        "soft-signal",
+        "symbolic"
+      ],
+      "glitchBudgetCost": "medium",
+      "tierOverrides": {
+        "pure-text": "ghost-trail-lite"
+      }
+    },
+    {
+      "id": "distortion.dream-soft",
+      "triggerKinds": [
+        "dream-enter",
+        "dream-exit"
+      ],
+      "readabilityFloor": 0.9,
+      "maxDurationMs": 1100,
+      "glyphFamilies": [
+        "soft-signal",
+        "decay"
+      ],
+      "glitchBudgetCost": "medium",
+      "tierOverrides": {
+        "pure-text": "alignment-drift-lite",
+        "hybrid-graphics": "layered-fade"
+      }
+    }
+  ]
+}

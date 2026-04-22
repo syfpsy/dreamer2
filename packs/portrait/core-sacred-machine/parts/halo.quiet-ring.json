@@ -1,0 +1,104 @@
+{
+  "$schema": "../../../../specs/schemas/portrait/portrait-part.schema.json",
+  "id": "halo.quiet-ring",
+  "slot": "halo",
+  "box": {
+    "width": 23,
+    "height": 11
+  },
+  "anchors": {},
+  "glyphFamilies": [
+    "symbolic",
+    "soft-signal"
+  ],
+  "paletteRole": "symbolic",
+  "paletteHints": {
+    "primary": "portrait.symbolic",
+    "dim": "portrait.signal",
+    "accent": "portrait.symbolic"
+  },
+  "frames": [
+    {
+      "id": "base",
+      "lines": [
+        "         .---.         ",
+        "      .-'  o  '-.      ",
+        "        '.___.'        ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       "
+      ]
+    },
+    {
+      "id": "focused",
+      "lines": [
+        "         .---.         ",
+        "      .-'  O  '-.      ",
+        "        '.___.'        ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       ",
+        "                       "
+      ]
+    }
+  ],
+  "stateProfiles": {
+    "standby": {
+      "frameId": "base",
+      "animation": "hover-quiet",
+      "mutationIntensity": "low"
+    },
+    "listening": {
+      "frameId": "base",
+      "animation": "hover-attentive",
+      "mutationIntensity": "low"
+    },
+    "building": {
+      "frameId": "focused",
+      "animation": "hold-bright",
+      "mutationIntensity": "low"
+    },
+    "researching": {
+      "frameId": "focused",
+      "animation": "hold-bright",
+      "mutationIntensity": "low"
+    },
+    "dreaming": {
+      "frameId": "base",
+      "animation": "blur-quiet",
+      "mutationIntensity": "medium"
+    },
+    "focused": {
+      "frameId": "focused",
+      "animation": "hold-bright",
+      "mutationIntensity": "low"
+    }
+  },
+  "proceduralHooks": [
+    "hook.halo.hover",
+    "hook.halo.bloom"
+  ],
+  "animationPersonality": "ritual-hover",
+  "mutationConstraints": {
+    "zone": "halo",
+    "maxIntensity": "medium",
+    "preserveSilhouette": true
+  },
+  "unlockRules": [
+    "default"
+  ],
+  "fallbackPartId": "halo.quiet-ring",
+  "narrativeMeaning": [
+    "ritual field",
+    "identity seal"
+  ]
+}

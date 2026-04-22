@@ -1,0 +1,56 @@
+{
+  "artifactTypes": [
+    {
+      "id": "artifact.relic.archive-lantern",
+      "memoryCategories": [
+        "relationship_narrative",
+        "long_term_personal"
+      ],
+      "visualStrategy": "unlock orbiting relic lantern",
+      "shellSurface": "portrait-relic-slot",
+      "rarity": "rare"
+    },
+    {
+      "id": "artifact.scar.stitched-echo",
+      "memoryCategories": [
+        "relationship_narrative",
+        "world_system"
+      ],
+      "visualStrategy": "unlock stitched scar overlay",
+      "shellSurface": "portrait-scar-slot",
+      "rarity": "rare"
+    },
+    {
+      "id": "artifact.timeline.marker",
+      "memoryCategories": [
+        "project_task",
+        "relationship_narrative",
+        "world_system"
+      ],
+      "visualStrategy": "append a visible timeline tick",
+      "shellSurface": "gallery",
+      "rarity": "common"
+    },
+    {
+      "id": "artifact.gallery.card",
+      "memoryCategories": [
+        "project_task",
+        "relationship_narrative",
+        "cosmetic_state"
+      ],
+      "visualStrategy": "capture a snapshot card with source links",
+      "shellSurface": "gallery",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "artifact.orbit.fragment",
+      "memoryCategories": [
+        "relationship_narrative",
+        "cosmetic_state"
+      ],
+      "visualStrategy": "add a small orbiting shard or fragment",
+      "shellSurface": "ambient-field",
+      "rarity": "uncommon"
+    }
+  ]
+}

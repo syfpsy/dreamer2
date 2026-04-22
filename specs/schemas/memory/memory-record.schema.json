@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/memory/memory-record.schema.json",
+  "title": "Memory Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "category",
+    "sourceSessionId",
+    "summary",
+    "tags",
+    "salience",
+    "retention",
+    "disposition",
+    "visibility"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "active_session",
+        "long_term_personal",
+        "project_task",
+        "relationship_narrative",
+        "world_system",
+        "cosmetic_state"
+      ]
+    },
+    "sourceSessionId": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "salience": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "retention": {
+      "type": "string",
+      "enum": [
+        "ephemeral",
+        "session",
+        "durable",
+        "archival"
+      ]
+    },
+    "disposition": {
+      "type": "string",
+      "enum": [
+        "active",
+        "retired",
+        "pruned",
+        "flagged_incorrect"
+      ]
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "hidden",
+        "inspectable",
+        "shell-visible",
+        "symbolic"
+      ]
+    }
+  }
+}

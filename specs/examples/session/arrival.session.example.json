@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/session/session-event.schema.json",
+  "id": "evt_2026_04_22_0001",
+  "timestamp": "2026-04-22T09:00:00+03:00",
+  "type": "ritual.arrival",
+  "actor": "shell",
+  "payload": {
+    "profileId": "first-light",
+    "modeId": "standby",
+    "message": "Companion presence initialized."
+  }
+}

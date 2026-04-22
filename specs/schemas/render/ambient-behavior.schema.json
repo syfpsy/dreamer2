@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/render/ambient-behavior.schema.json",
+  "title": "Ambient Behavior",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "simulationClass",
+    "regionTargets",
+    "glyphFamilies",
+    "density",
+    "cadenceWindowMs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "simulationClass": {
+      "type": "string"
+    },
+    "regionTargets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "glyphFamilies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "density": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "cadenceWindowMs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "max"
+      ],
+      "properties": {
+        "min": {
+          "type": "integer",
+          "minimum": 16
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 16
+        }
+      }
+    },
+    "capabilityOverrides": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

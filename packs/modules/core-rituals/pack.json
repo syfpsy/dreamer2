@@ -1,0 +1,61 @@
+{
+  "$schema": "../../../specs/schemas/packs/module-pack.schema.json",
+  "id": "module-pack.core.rituals",
+  "version": "0.1.0",
+  "capabilities": [
+    "commands",
+    "panels",
+    "mode-influence",
+    "ambient-entities"
+  ],
+  "commandIds": [
+    "cmd.send",
+    "cmd.help",
+    "cmd.soul",
+    "cmd.dream",
+    "cmd.essence",
+    "cmd.mode"
+  ],
+  "panelIds": [
+    "panel.status.core",
+    "panel.transmission.log",
+    "panel.command.hints"
+  ],
+  "artifactTypeIds": [
+    "artifact.timeline.marker"
+  ],
+  "companionIds": [
+    "entity.signal-bird"
+  ],
+  "ambientBehaviorIds": [
+    "ambient.quiet-dust",
+    "ambient.relay-pulse",
+    "ambient.low-static"
+  ],
+  "distortionPresetIds": [
+    "distortion.clear",
+    "distortion.breath",
+    "distortion.dream-soft"
+  ],
+  "borderBehaviorIds": [],
+  "artifactRendererIds": [
+    "artifact.timeline.marker"
+  ],
+  "overlayIds": [
+    "overlay.mode.listening",
+    "overlay.mode.focused"
+  ],
+  "optionalModeIds": [
+    "standby",
+    "listening",
+    "thinking",
+    "dreaming",
+    "recovering",
+    "focused"
+  ],
+  "behaviorHooks": [
+    "hook.ambient.mode-profile",
+    "hook.distortion.arrival"
+  ],
+  "notes": "Core presence, command rituals, and shell guidance."
+}

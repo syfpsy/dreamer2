@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/packs/theme.schema.json",
+  "title": "Theme",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "colors",
+    "terminal",
+    "semanticRoles"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "colors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signalPrimary",
+        "structuralDim",
+        "accentRare",
+        "background"
+      ],
+      "properties": {
+        "signalPrimary": {
+          "type": "string"
+        },
+        "structuralDim": {
+          "type": "string"
+        },
+        "accentRare": {
+          "type": "string"
+        },
+        "background": {
+          "type": "string"
+        }
+      }
+    },
+    "terminal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cursorStyle",
+        "shadowNoise"
+      ],
+      "properties": {
+        "cursorStyle": {
+          "type": "string"
+        },
+        "shadowNoise": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "semanticRoles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/portrait/portrait-part.schema.json",
+  "title": "Portrait Part",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "slot",
+    "box",
+    "anchors",
+    "glyphFamilies",
+    "paletteRole",
+    "paletteHints",
+    "frames",
+    "stateProfiles",
+    "proceduralHooks",
+    "animationPersonality",
+    "mutationConstraints",
+    "unlockRules",
+    "fallbackPartId",
+    "narrativeMeaning"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "slot": {
+      "type": "string"
+    },
+    "box": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "anchors": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "x",
+          "y"
+        ],
+        "properties": {
+          "x": {
+            "type": "integer"
+          },
+          "y": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "glyphFamilies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "paletteRole": {
+      "type": "string"
+    },
+    "paletteHints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary",
+        "dim"
+      ],
+      "properties": {
+        "primary": {
+          "type": "string"
+        },
+        "dim": {
+          "type": "string"
+        },
+        "accent": {
+          "type": "string"
+        }
+      }
+    },
+    "frames": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "lines"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "lines": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "stateProfiles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "frameId",
+          "animation"
+        ],
+        "properties": {
+          "frameId": {
+            "type": "string"
+          },
+          "animation": {
+            "type": "string"
+          },
+          "mutationIntensity": {
+            "type": "string",
+            "enum": [
+              "none",
+              "low",
+              "medium"
+            ]
+          },
+          "rareEventAnimation": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "proceduralHooks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "animationPersonality": {
+      "type": "string"
+    },
+    "mutationConstraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "zone",
+        "maxIntensity",
+        "preserveSilhouette"
+      ],
+      "properties": {
+        "zone": {
+          "type": "string"
+        },
+        "maxIntensity": {
+          "type": "string",
+          "enum": [
+            "none",
+            "low",
+            "medium"
+          ]
+        },
+        "preserveSilhouette": {
+          "type": "boolean"
+        }
+      }
+    },
+    "unlockRules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fallbackPartId": {
+      "type": "string"
+    },
+    "narrativeMeaning": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

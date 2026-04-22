@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dreamer2/render/micro-motion.schema.json",
+  "title": "Micro Motion",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "target",
+    "driver",
+    "cadenceWindowMs",
+    "intensity",
+    "glyphFamilies"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "driver": {
+      "type": "string"
+    },
+    "cadenceWindowMs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "max"
+      ],
+      "properties": {
+        "min": {
+          "type": "integer",
+          "minimum": 16
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 16
+        }
+      }
+    },
+    "intensity": {
+      "type": "string",
+      "enum": [
+        "none",
+        "low",
+        "medium"
+      ]
+    },
+    "glyphFamilies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "capabilityFallback": {
+      "type": "string"
+    }
+  }
+}

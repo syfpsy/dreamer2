@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schemas/render/render-state.schema.json",
+  "profileId": "first-light",
+  "timestamp": "2026-04-22T09:00:00+03:00",
+  "modeId": "standby",
+  "capabilityTier": "pure-text",
+  "seed": {
+    "identity": "ASTER-1147-GLASS",
+    "portrait": 58113,
+    "ambient": 1902
+  },
+  "scene": {
+    "grid": {
+      "width": 120,
+      "height": 40,
+      "cellAspect": "terminal-default"
+    },
+    "layers": [
+      "core-silhouette",
+      "ambient-field",
+      "state",
+      "event",
+      "text-ui"
+    ],
+    "motionBudget": {
+      "portraitCenter": "low",
+      "portraitEdges": "low",
+      "ambientField": "medium",
+      "ui": "none"
+    },
+    "glitchBudget": "low"
+  },
+  "portrait": {
+    "activeParts": {
+      "head": "head.cathedral-mask",
+      "eyes": "eyes.vigil-slit",
+      "shoulders": "shoulders.monolith",
+      "core": "core.reliquary",
+      "halo": "halo.quiet-ring",
+      "scar": "scar.none",
+      "relic": "relic.none"
+    },
+    "layers": [
+      "silhouette",
+      "identity",
+      "micro-motion",
+      "ambient",
+      "mode-overlay",
+      "event"
+    ],
+    "mutations": [],
+    "artifactBindings": [],
+    "companionBindings": [
+      "entity.signal-bird"
+    ],
+    "stabilityProfile": "iconic-stable",
+    "mutationBudget": "low"
+  },
+  "ambientField": {
+    "profile": "ambient.quiet-dust",
+    "density": 0.08,
+    "cadenceMs": 3200,
+    "activeEntities": [
+      "entity.signal-bird"
+    ],
+    "behaviorIds": [
+      "ambient.quiet-dust"
+    ]
+  },
+  "panels": [
+    "panel.status.core",
+    "panel.transmission.log",
+    "panel.command.hints",
+    "panel.memory.surface",
+    "panel.artifact.shelf"
+  ],
+  "transmission": {
+    "distortionProfile": "distortion.clear",
+    "pendingLineStyle": "soft-cursor",
+    "activePresetId": "distortion.clear",
+    "readabilityFloor": 1
+  },
+  "redraw": {
+    "strategy": "diff-regions",
+    "maxChangedRegions": 14
+  }
+}
