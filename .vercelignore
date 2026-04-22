@@ -6,3 +6,4 @@ state/
 !README.md
 .git/
 __pycache__/
+pyproject.toml
